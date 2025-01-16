@@ -11,13 +11,10 @@ function parseFilterFile(content) {
       const map = new Map();
       let attributeIndex = i + 1;
       let nextLine = blocks[attributeIndex];
-      while (nextLine) {
+      while (nextLine?.length >= 2) {
+        const [prop, ...values] = nextLine.trim().split(/\s+/);
+        map.set(prop, values);
         nextLine = blocks[attributeIndex++];
-        // console.log(nextLine);
-        if (nextLine) {
-          const [prop, ...values] = nextLine.trim().split(/\s+/);
-          map.set(prop, values);
-        }
       }
       i = attributeIndex - 1;
       result.set(line, map);
@@ -81,32 +78,25 @@ const processObject = [
   },
 ];
 
-const content = fs.readFileSync(
-  path.join(__dirname, "../backup/test.filter"),
-  "utf8"
-);
-const parsed = parseFilterFile(content);
-const str = genFilterFile(parsed);
-fs.writeFileSync(path.join(__dirname, "../backup/test.output.filter"), str);
-
 function main() {
-  processObject.forEach(({ from, to }) => {
+  processObject.forEach(({ from, target }) => {
     const fromFile = fs.readFileSync(
       path.join(__dirname, "../source", from),
       "utf8"
     );
-    const toFile = fs.readFileSync(
-      path.join(__dirname, "../backup"),
-      to,
+    const compareFile = fs.readFileSync(
+      path.join(__dirname, "../backup", target),
       "utf8"
     );
 
     const fromMap = parseFilterFile(fromFile);
-    const toMap = parseFilterFile(toFile);
+    const compareMap = parseFilterFile(compareFile);
 
-    const targetMap = addCustomSound(fromMap, toMap);
+    const targetMap = addCustomSound(fromMap, compareMap);
 
     const targetFile = genFilterFile(targetMap);
     fs.writeFileSync(path.join(__dirname, "../", from), targetFile, "utf-8");
   });
 }
+
+main();

@@ -1,3 +1,127 @@
+#===============================================================================================================
+# NeverSink's Indepth Loot Filter - for Path of Exile 2
+#===============================================================================================================
+# VERSION:  0.5.1
+# TYPE:     1-REGULAR
+# STYLE:    CUSTOMSOUNDS
+# AUTHOR:   NeverSink
+# BUILDNOTES: Filter generated with NeverSink's FilterpolishZ and the domainlanguage Exo.
+#
+#------------------------------------
+# LINKS TO LATEST VERSION AND FILTER EDITOR
+#------------------------------------
+#
+# EDIT/CUSTOMIZE FILTER ON: 	https://www.FilterBlade.xyz
+# GET THE LATEST VERSION ON: 	https://www.FilterBlade.xyz or https://github.com/NeverSinkDev/NeverSink-Filter
+#
+#------------------------------------
+# INSTALLATION / UPDATE :
+#------------------------------------
+#
+# 0) It's recommended to check for updates once a month or at least before new leagues, to receive economy finetuning and new features!
+# 1) Paste this file into the following folder: %userprofile%/Documents/My Games/Path of Exile
+# 2) INGAME: Escape -> Options -> UI -> Scroll down -> Select the filter from the Dropdown box
+#
+#------------------------------------
+# AUTO-UPDATER SERVICE AND SUPPORT THE DEVELOPMENT
+#------------------------------------
+#
+# Patreon supporters get access to the FilterBlade Auto-Updater that combines 100% automated updates with custom styles and your customizations!
+# It's a great way to support us and get something in return and it helps us on our journey of making our own company and potentially game. Thank you
+# Learn more about the feature here: https://www.youtube.com/watch?v=i8RJx0s0zsA
+#
+# PATREON:               		https://www.patreon.com/Neversink
+# OTHER:                        https://www.filterblade.xyz/About
+#
+#------------------------------------
+# CONTACT - if you want to get notifications about updates or just get in touch:
+#------------------------------------
+# For feedback, questions and suggestions please join our discord!
+#
+# DISCORD: https://discord.gg/zFEx92a
+# TWITTER: @NeverSinkDev
+# TWITCH:  https://www.twitch.tv/neversink
+# GITHUB:  NeverSinkDev
+
+#===============================================================================================================
+# [WELCOME] TABLE OF CONTENTS + QUICKJUMP TABLE
+#===============================================================================================================
+# [[0100]] OVERRIDE AREA 1 - Override ALL rules here
+# [[0100]] Gold
+# [[0200]] Exotic Bases
+# [[0300]] Exotic Item States
+# [[0400]] Chancing Bases and Economy Selected Bases
+#   [0401] Crafting and Chancing Bases
+# [[0500]] Endgame Flasks
+# [[0600]] Endgame Charms
+# [[0700]] Salvagables
+# [[0800]] Normal and Magic Crafting bases
+#   [0801] Hide Crafting Bases
+#   [0802] Normal, Magic Crafting Decorators
+#   [0803] Normal, Magic Crafting: Level 82+
+#   [0804] Normal, Magic Crafting: Optional Rules
+#   [0805] Normal, Magic Crafting: Endgame Progression
+#   [0806] Normal, Magic Crafting: Rings+Amulets
+#   [0807] Normal, Magic Crafting: Belts
+#   [0808] Normal, Magic Crafting: Decorator Removers
+# [[0900]] Hide Layer 1 - Normal and Magic Endgame Gear
+# [[1000]] Rare Item Decorators
+# [[1100]] Endgame - Conditional Hide Layers
+# [[1200]] Endgame - Rare - Jewellery
+# [[1300]] Endgame - Rare - Gear - Droplevel Hiding
+# [[1400]] Endgame - Rare - Gear
+# [[1500]] Untiered Rare Catcher
+# [[1600]] Hide Layer 2 - Rare Gear
+# [[1700]] Socketables - Runes and Soul Cores
+# [[1800]] Jewels
+# [[1900]] Relics
+# [[2000]] Gems and Uncut Gems
+# [[2100]] Waystones
+# [[2200]] Normal Waystone Progression
+#   [2201] Generic Decorators
+#   [2202] Special Maps
+#   [2203] Waystone progression
+# [[2300]] Currency - Exceptions - Leveling Currencies
+# [[2400]] Currency - Regular Currency Tiering
+# [[2500]] Currency - SPECIAL
+#   [2501] Distilled Emotions (Delirium)
+#   [2502] Catalysts (breach)
+#   [2503] Essences
+#   [2504] Omen (ritual)
+# [[2600]] Misc Map Like
+# [[2700]] Splinters, Tablets, Fragments
+# [[2800]] Misc Map Items
+# [[2900]] Remaining Currency
+# [[3000]] Uniques
+#   [3001] Exceptions #1
+#   [3002] Tier 1 and 2 uniques
+#   [3003] Multi-Unique bases.
+#   [3004] Low tier exceptions
+#   [3005] Tier 3 uniques 
+#   [3006] Tier 4 uniques
+# [[3100]] Leveling - Salvagable
+# [[3200]] Leveling - Hide outdated leveling flasks
+# [[3300]] Leveling - Life Mana Flasks
+#   [3301] Life flasks
+#   [3302] Mana flasks
+#   [3303] Charms
+# [[3400]] Leveling - Rules
+#   [3401] Rares - Decorators
+#   [3402] Rares - Universal
+#   [3403] Rares - Other
+# [[3500]] Leveling - Useful magic and normal items
+#   [3501] Decorators
+#   [3502] Purpose Picked Items
+#   [3503] Conditional Rules
+#   [3504] Others
+#   [3505] Hide All known Section
+#   [3506] Show All unknown Section
+
+#===============================================================================================================
+# [[0100]] Gold
+#===============================================================================================================
+# !! Waypoint c0.start : "Start - Override ALL rules"
+
 Show # $type->gold $tier->stack3
 	StackSize >= 5000
 	BaseType == "Gold"
