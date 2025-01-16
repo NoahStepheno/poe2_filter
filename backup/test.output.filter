@@ -1,0 +1,22 @@
+Show # $type->gold $tier->stack3
+  StackSize >= 5000
+  BaseType == "Gold"
+  SetFontSize 40
+  SetTextColor 255 255 255 255
+  SetBorderColor 255 255 255 255
+  SetBackgroundColor 20 20 0 255
+  PlayEffect Orange
+  MinimapIcon 1 Yellow Cross
+  CustomAlertSound "2currency.mp3" 300
+
+
+Hide # $type->gold $tier->stack2
+  StackSize >= 2500
+  BaseType == "Gold"
+  SetTextColor 255 255 255 255
+  SetBorderColor 255 255 255 255
+  PlayEffect Orange Temp
+  MinimapIcon 1 White Cross
+  CustomAlertSound "2currency.mp3" 300
+
+

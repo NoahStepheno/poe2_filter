@@ -1,3 +1,127 @@
+#===============================================================================================================
+# NeverSink's Indepth Loot Filter - for Path of Exile 2
+#===============================================================================================================
+# VERSION:  0.5.1
+# TYPE:     4-VERY STRICT
+# STYLE:    CUSTOMSOUNDS
+# AUTHOR:   NeverSink
+# BUILDNOTES: Filter generated with NeverSink's FilterpolishZ and the domainlanguage Exo.
+#
+#------------------------------------
+# LINKS TO LATEST VERSION AND FILTER EDITOR
+#------------------------------------
+#
+# EDIT/CUSTOMIZE FILTER ON: 	https://www.FilterBlade.xyz
+# GET THE LATEST VERSION ON: 	https://www.FilterBlade.xyz or https://github.com/NeverSinkDev/NeverSink-Filter
+#
+#------------------------------------
+# INSTALLATION / UPDATE :
+#------------------------------------
+#
+# 0) It's recommended to check for updates once a month or at least before new leagues, to receive economy finetuning and new features!
+# 1) Paste this file into the following folder: %userprofile%/Documents/My Games/Path of Exile
+# 2) INGAME: Escape -> Options -> UI -> Scroll down -> Select the filter from the Dropdown box
+#
+#------------------------------------
+# AUTO-UPDATER SERVICE AND SUPPORT THE DEVELOPMENT
+#------------------------------------
+#
+# Patreon supporters get access to the FilterBlade Auto-Updater that combines 100% automated updates with custom styles and your customizations!
+# It's a great way to support us and get something in return and it helps us on our journey of making our own company and potentially game. Thank you
+# Learn more about the feature here: https://www.youtube.com/watch?v=i8RJx0s0zsA
+#
+# PATREON:               		https://www.patreon.com/Neversink
+# OTHER:                        https://www.filterblade.xyz/About
+#
+#------------------------------------
+# CONTACT - if you want to get notifications about updates or just get in touch:
+#------------------------------------
+# For feedback, questions and suggestions please join our discord!
+#
+# DISCORD: https://discord.gg/zFEx92a
+# TWITTER: @NeverSinkDev
+# TWITCH:  https://www.twitch.tv/neversink
+# GITHUB:  NeverSinkDev
+
+#===============================================================================================================
+# [WELCOME] TABLE OF CONTENTS + QUICKJUMP TABLE
+#===============================================================================================================
+# [[0100]] OVERRIDE AREA 1 - Override ALL rules here
+# [[0100]] Gold
+# [[0200]] Exotic Bases
+# [[0300]] Exotic Item States
+# [[0400]] Chancing Bases and Economy Selected Bases
+#   [0401] Crafting and Chancing Bases
+# [[0500]] Endgame Flasks
+# [[0600]] Endgame Charms
+# [[0700]] Salvagables
+# [[0800]] Normal and Magic Crafting bases
+#   [0801] Hide Crafting Bases
+#   [0802] Normal, Magic Crafting Decorators
+#   [0803] Normal, Magic Crafting: Level 82+
+#   [0804] Normal, Magic Crafting: Optional Rules
+#   [0805] Normal, Magic Crafting: Endgame Progression
+#   [0806] Normal, Magic Crafting: Rings+Amulets
+#   [0807] Normal, Magic Crafting: Belts
+#   [0808] Normal, Magic Crafting: Decorator Removers
+# [[0900]] Hide Layer 1 - Normal and Magic Endgame Gear
+# [[1000]] Rare Item Decorators
+# [[1100]] Endgame - Conditional Hide Layers
+# [[1200]] Endgame - Rare - Jewellery
+# [[1300]] Endgame - Rare - Gear - Droplevel Hiding
+# [[1400]] Endgame - Rare - Gear
+# [[1500]] Untiered Rare Catcher
+# [[1600]] Hide Layer 2 - Rare Gear
+# [[1700]] Socketables - Runes and Soul Cores
+# [[1800]] Jewels
+# [[1900]] Relics
+# [[2000]] Gems and Uncut Gems
+# [[2100]] Waystones
+# [[2200]] Normal Waystone Progression
+#   [2201] Generic Decorators
+#   [2202] Special Maps
+#   [2203] Waystone progression
+# [[2300]] Currency - Exceptions - Leveling Currencies
+# [[2400]] Currency - Regular Currency Tiering
+# [[2500]] Currency - SPECIAL
+#   [2501] Distilled Emotions (Delirium)
+#   [2502] Catalysts (breach)
+#   [2503] Essences
+#   [2504] Omen (ritual)
+# [[2600]] Misc Map Like
+# [[2700]] Splinters, Tablets, Fragments
+# [[2800]] Misc Map Items
+# [[2900]] Remaining Currency
+# [[3000]] Uniques
+#   [3001] Exceptions #1
+#   [3002] Tier 1 and 2 uniques
+#   [3003] Multi-Unique bases.
+#   [3004] Low tier exceptions
+#   [3005] Tier 3 uniques 
+#   [3006] Tier 4 uniques
+# [[3100]] Leveling - Salvagable
+# [[3200]] Leveling - Hide outdated leveling flasks
+# [[3300]] Leveling - Life Mana Flasks
+#   [3301] Life flasks
+#   [3302] Mana flasks
+#   [3303] Charms
+# [[3400]] Leveling - Rules
+#   [3401] Rares - Decorators
+#   [3402] Rares - Universal
+#   [3403] Rares - Other
+# [[3500]] Leveling - Useful magic and normal items
+#   [3501] Decorators
+#   [3502] Purpose Picked Items
+#   [3503] Conditional Rules
+#   [3504] Others
+#   [3505] Hide All known Section
+#   [3506] Show All unknown Section
+
+#===============================================================================================================
+# [[0100]] Gold
+#===============================================================================================================
+# !! Waypoint c0.start : "Start - Override ALL rules"
+
 Show # $type->gold $tier->stack3
 	StackSize >= 5000
 	BaseType == "Gold"
@@ -31,7 +155,7 @@ Show # %H5 $type->gold $tier->stack1lvl
 	SetBorderColor 255 255 255 255
 	PlayEffect Orange Temp
 
-Show # %H3 $type->gold $tier->any
+Hide # %H3 $type->gold $tier->any
 	BaseType == "Gold"
 	SetTextColor 180 180 180
 	SetBorderColor 0 0 0 255
@@ -66,7 +190,7 @@ Show # %D6 $type->exoticbases $tier->commonexoticbaseshigh
 	SetTextColor 0 70 255 255
 	SetBorderColor 0 70 255 255
 	SetBackgroundColor 30 0 70 255
-	CustomAlertSound "2currency.mp3" 300
+	CustomAlertSound "3uniques.mp3" 300
 	PlayEffect Blue
 	MinimapIcon 1 Blue Diamond
 
@@ -183,28 +307,28 @@ Show # %D4 $type->endgame->flasks $tier->anyhighqualflask
 	SetBorderColor 100 100 100
 	SetBackgroundColor 10 60 40
 
-Show # %D2 $type->endgame->flasks $tier->anyqualflask
-	Mirrored False
-	Corrupted False
-	Quality >= 1
-	Rarity Normal Magic
-	BaseType == "Ultimate Life Flask" "Ultimate Mana Flask"
-	AreaLevel >= 65
-	SetFontSize 38
-	SetBorderColor 100 100 100
-	SetBackgroundColor 10 60 40
+#Show # %D2 $type->endgame->flasks $tier->anyqualflask
+#	Mirrored False
+#	Corrupted False
+#	Quality >= 1
+#	Rarity Normal Magic
+#	BaseType == "Ultimate Life Flask" "Ultimate Mana Flask"
+#	AreaLevel >= 65
+#	SetFontSize 38
+#	SetBorderColor 100 100 100
+#	SetBackgroundColor 10 60 40
 
-Show # %D1 $type->endgame->flasks $tier->earlymappinglifemana
-	Mirrored False
-	Corrupted False
-	ItemLevel >= 65
-	Rarity Normal Magic
-	BaseType == "Ultimate Life Flask" "Ultimate Mana Flask"
-	AreaLevel >= 65
-	AreaLevel <= 67
-	SetFontSize 38
-	SetBorderColor 100 100 100
-	SetBackgroundColor 10 60 40
+#Show # %D1 $type->endgame->flasks $tier->earlymappinglifemana
+#	Mirrored False
+#	Corrupted False
+#	ItemLevel >= 65
+#	Rarity Normal Magic
+#	BaseType == "Ultimate Life Flask" "Ultimate Mana Flask"
+#	AreaLevel >= 65
+#	AreaLevel <= 67
+#	SetFontSize 38
+#	SetBorderColor 100 100 100
+#	SetBackgroundColor 10 60 40
 
 #===============================================================================================================
 # [[0600]] Endgame Charms
@@ -251,16 +375,16 @@ Show # %D4 $type->endgame->charms $tier->highothercharms
 	SetBorderColor 245 175 0
 	SetBackgroundColor 10 60 40
 
-Show # %D3 $type->endgame->charms $tier->qualitycharms
-	Mirrored False
-	Corrupted False
-	Quality > 0
-	Rarity Normal Magic
-	Class == "Charms"
-	AreaLevel >= 65
-	SetFontSize 40
-	SetBorderColor 100 100 100
-	SetBackgroundColor 10 60 40
+#Show # %D3 $type->endgame->charms $tier->qualitycharms
+#	Mirrored False
+#	Corrupted False
+#	Quality > 0
+#	Rarity Normal Magic
+#	Class == "Charms"
+#	AreaLevel >= 65
+#	SetFontSize 40
+#	SetBorderColor 100 100 100
+#	SetBackgroundColor 10 60 40
 
 Show # %D4 $type->endgame->charms $tier->earlymappingcharms
 	Mirrored False
@@ -274,15 +398,15 @@ Show # %D4 $type->endgame->charms $tier->earlymappingcharms
 	SetBorderColor 100 100 100
 	SetBackgroundColor 10 60 40
 
-Show # %D2 $type->endgame->charms $tier->anycharm
-	Mirrored False
-	Corrupted False
-	Rarity Normal Magic
-	Class == "Charms"
-	AreaLevel >= 65
-	SetFontSize 38
-	SetBorderColor 100 100 100
-	SetBackgroundColor 10 60 40
+#Show # %D2 $type->endgame->charms $tier->anycharm
+#	Mirrored False
+#	Corrupted False
+#	Rarity Normal Magic
+#	Class == "Charms"
+#	AreaLevel >= 65
+#	SetFontSize 38
+#	SetBorderColor 100 100 100
+#	SetBackgroundColor 10 60 40
 
 #===============================================================================================================
 # [[0700]] Salvagables
@@ -291,21 +415,21 @@ Show # %D2 $type->endgame->charms $tier->anycharm
 
 # Double Quality Currencies
 
-Show # %D3 $type->endgame->salvagable $tier->quality2martialany
-	Quality >= 10
-	Rarity Normal Magic
-	Class == "Bows" "Crossbows" "One Hand Maces" "Quarterstaves" "Two Hand Maces"
-	AreaLevel >= 65
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D3 $type->endgame->salvagable $tier->quality2martialany
+#	Quality >= 10
+#	Rarity Normal Magic
+#	Class == "Bows" "Crossbows" "One Hand Maces" "Quarterstaves" "Two Hand Maces"
+#	AreaLevel >= 65
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
-Show # %D3 $type->endgame->salvagable $tier->quality2casterany
-	Quality >= 10
-	Rarity Normal Magic
-	Class == "Sceptres" "Staves" "Wands"
-	AreaLevel >= 65
-	SetFontSize 38
-	SetBorderColor 180 180 180
+#Show # %D3 $type->endgame->salvagable $tier->quality2casterany
+#	Quality >= 10
+#	Rarity Normal Magic
+#	Class == "Sceptres" "Staves" "Wands"
+#	AreaLevel >= 65
+#	SetFontSize 38
+#	SetBorderColor 180 180 180
 
 Show # %D4 $type->endgame->salvagable $tier->quality2armorany
 	Quality >= 10
@@ -317,49 +441,49 @@ Show # %D4 $type->endgame->salvagable $tier->quality2armorany
 
 # Single Quality Currencies
 
-Show # %D2 $type->endgame->salvagable $tier->qualitymartialany
-	Quality >= 1
-	Rarity Normal Magic
-	Class == "Bows" "Crossbows" "One Hand Maces" "Quarterstaves" "Two Hand Maces"
-	AreaLevel >= 65
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D2 $type->endgame->salvagable $tier->qualitymartialany
+#	Quality >= 1
+#	Rarity Normal Magic
+#	Class == "Bows" "Crossbows" "One Hand Maces" "Quarterstaves" "Two Hand Maces"
+#	AreaLevel >= 65
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
-Show # %D2 $type->endgame->salvagable $tier->qualitycasterany
-	Quality >= 1
-	Rarity Normal Magic
-	Class == "Sceptres" "Staves" "Wands"
-	AreaLevel >= 65
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D2 $type->endgame->salvagable $tier->qualitycasterany
+#	Quality >= 1
+#	Rarity Normal Magic
+#	Class == "Sceptres" "Staves" "Wands"
+#	AreaLevel >= 65
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
-Show # %D3 $type->endgame->salvagable $tier->qualityarmorany
-	Quality >= 1
-	Rarity Normal Magic
-	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
-	AreaLevel >= 65
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D3 $type->endgame->salvagable $tier->qualityarmorany
+#	Quality >= 1
+#	Rarity Normal Magic
+#	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
+#	AreaLevel >= 65
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
 # Artificer Scraps
 
-Show # %D1 $type->endgame->salvagable $tier->socketslarge
-	Sockets > 0
-	Height >= 3
-	Rarity Normal Magic
-	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	AreaLevel >= 65
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D1 $type->endgame->salvagable $tier->socketslarge
+#	Sockets > 0
+#	Height >= 3
+#	Rarity Normal Magic
+#	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	AreaLevel >= 65
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
-Show # %D2 $type->endgame->salvagable $tier->socketssmall
-	Sockets > 0
-	Height < 3
-	Rarity Normal Magic
-	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	AreaLevel >= 65
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D2 $type->endgame->salvagable $tier->socketssmall
+#	Sockets > 0
+#	Height < 3
+#	Rarity Normal Magic
+#	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	AreaLevel >= 65
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
 #===============================================================================================================
 # [[0800]] Normal and Magic Crafting bases
@@ -529,13 +653,13 @@ Show # %D4 $type->endgame->normalcraft->any $tier->t1ideallevel
 	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
 	BaseType == "Attuned Wand" "Chiming Staff" "Expert Altar Robe" "Expert Barrier Quarterstaff" "Expert Bombard Crossbow" "Expert Brigand Mace" "Expert Cloaked Mail" "Expert Doubled Gauntlets" "Expert Dualstring Bow" "Expert Edged Buckler" "Expert Elite Greathelm" "Expert Feathered Sandals" "Expert Feathered Targe" "Expert Feathered Tiara" "Expert Forlorn Crossbow" "Expert Goldcast Cuffs" "Expert Heavy Crown" "Expert Hexer's Robe" "Expert Hunter Hood" "Expert Hunting Shoes" "Expert Intricate Gloves" "Expert Iron Cuirass" "Expert Keth Raiment" "Expert Leaden Greathammer" "Expert Lizardscale Boots" "Expert Moulded Mitts" "Expert Omen Crest Shield" "Expert Pathfinder Coat" "Expert Pelt Leggings" "Expert Pelt Mantle" "Expert Plumed Focus" "Expert Rogue Armour" "Expert Sacrificial Mantle" "Expert Scale Mail" "Expert Scalper's Jacket" "Expert Serpentscale Coat" "Expert Shaman Mantle" "Expert Shielded Helm" "Expert Slicing Quarterstaff" "Expert Spined Bracers" "Expert Spiral Wraps" "Expert Stacked Sabatons" "Expert Steel Plate" "Expert Stone Greaves" "Expert Stone Tower Shield" "Expert Studded Vest" "Expert Tribal Mask" "Expert Vaal Cuirass" "Expert Waxed Jacket" "Expert Wayfarer Jacket" "Omen Sceptre" "Primed Quiver" "Rattling Sceptre" "Siphoning Wand" "Voltaic Staff"
 
-Show # %D2 $type->endgame->normalcraft->any $tier->t2ideallevel
-	Mirrored False
-	Corrupted False
-	ItemLevel >= 82
-	Rarity Normal Magic
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	BaseType == "Advanced Altar Robe" "Advanced Sacrificial Mantle" "Advanced Scale Mail" "Advanced Scalper's Jacket" "Advanced Serpentscale Coat" "Advanced Vaal Cuirass" "Expert Aged Cuffs" "Expert Antler Focus" "Expert Bolstered Mitts" "Expert Braced Sabatons" "Expert Braced Tower Shield" "Expert Chain Tiara" "Expert Construct Hammer" "Expert Cowled Helm" "Expert Crescent Quarterstaff" "Expert Crescent Targe" "Expert Crystal Focus" "Expert Cultist Greathammer" "Expert Dyad Crossbow" "Expert Face Mask" "Expert Felt Cap" "Expert Firm Bracers" "Expert Frayed Shoes" "Expert Gauze Wraps" "Expert Guarded Helm" "Expert Horned Crown" "Expert Iron Greaves" "Expert Jewelled Gloves" "Expert Jingling Crest Shield" "Expert Laced Boots" "Expert Layered Gauntlets" "Expert Linen Wraps" "Expert Long Quarterstaff" "Expert Mail Sabatons" "Expert Martyr Crown" "Expert Oak Greathammer" "Expert Padded Leggings" "Expert Pelage Targe" "Expert Plated Buckler" "Expert Rampart Tower Shield" "Expert Ringmail Gauntlets" "Expert Riveted Mitts" "Expert Rope Cuffs" "Expert Sectioned Bracers" "Expert Secured Leggings" "Expert Sigil Crest Shield" "Expert Silk Slippers" "Expert Soldier Greathelm" "Expert Sombre Gloves" "Expert Spiked Buckler" "Expert Spired Greathelm" "Expert Steeltoe Boots" "Expert Swathed Cap" "Expert Tense Crossbow" "Expert Threaded Shoes" "Expert Trimmed Greaves" "Expert Veiled Mask" "Expert Warden Bow" "Expert Warpick" "Expert Wicker Tiara" "Expert Wrapped Sandals" "Expert Zealot Bow" "Gelid Staff" "Penetrating Quiver" "Pyrophyte Staff" "Stoic Sceptre" "Visceral Quiver" "Volant Quiver" "Volatile Wand" "Withered Wand"
+#Show # %D2 $type->endgame->normalcraft->any $tier->t2ideallevel
+#	Mirrored False
+#	Corrupted False
+#	ItemLevel >= 82
+#	Rarity Normal Magic
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	BaseType == "Advanced Altar Robe" "Advanced Sacrificial Mantle" "Advanced Scale Mail" "Advanced Scalper's Jacket" "Advanced Serpentscale Coat" "Advanced Vaal Cuirass" "Expert Aged Cuffs" "Expert Antler Focus" "Expert Bolstered Mitts" "Expert Braced Sabatons" "Expert Braced Tower Shield" "Expert Chain Tiara" "Expert Construct Hammer" "Expert Cowled Helm" "Expert Crescent Quarterstaff" "Expert Crescent Targe" "Expert Crystal Focus" "Expert Cultist Greathammer" "Expert Dyad Crossbow" "Expert Face Mask" "Expert Felt Cap" "Expert Firm Bracers" "Expert Frayed Shoes" "Expert Gauze Wraps" "Expert Guarded Helm" "Expert Horned Crown" "Expert Iron Greaves" "Expert Jewelled Gloves" "Expert Jingling Crest Shield" "Expert Laced Boots" "Expert Layered Gauntlets" "Expert Linen Wraps" "Expert Long Quarterstaff" "Expert Mail Sabatons" "Expert Martyr Crown" "Expert Oak Greathammer" "Expert Padded Leggings" "Expert Pelage Targe" "Expert Plated Buckler" "Expert Rampart Tower Shield" "Expert Ringmail Gauntlets" "Expert Riveted Mitts" "Expert Rope Cuffs" "Expert Sectioned Bracers" "Expert Secured Leggings" "Expert Sigil Crest Shield" "Expert Silk Slippers" "Expert Soldier Greathelm" "Expert Sombre Gloves" "Expert Spiked Buckler" "Expert Spired Greathelm" "Expert Steeltoe Boots" "Expert Swathed Cap" "Expert Tense Crossbow" "Expert Threaded Shoes" "Expert Trimmed Greaves" "Expert Veiled Mask" "Expert Warden Bow" "Expert Warpick" "Expert Wicker Tiara" "Expert Wrapped Sandals" "Expert Zealot Bow" "Gelid Staff" "Penetrating Quiver" "Pyrophyte Staff" "Stoic Sceptre" "Visceral Quiver" "Volant Quiver" "Volatile Wand" "Withered Wand"
 
 #Show  # $type->endgame->normalcraft->any $tier->t3ideallevel
 #	Mirrored False
@@ -579,23 +703,23 @@ Show # %D4 $type->endgame->normalcraft->any $tier->t1
 	BaseType == "Attuned Wand" "Chiming Staff" "Expert Altar Robe" "Expert Barrier Quarterstaff" "Expert Bombard Crossbow" "Expert Brigand Mace" "Expert Cloaked Mail" "Expert Doubled Gauntlets" "Expert Dualstring Bow" "Expert Edged Buckler" "Expert Elite Greathelm" "Expert Feathered Sandals" "Expert Feathered Targe" "Expert Feathered Tiara" "Expert Forlorn Crossbow" "Expert Goldcast Cuffs" "Expert Heavy Crown" "Expert Hexer's Robe" "Expert Hunter Hood" "Expert Hunting Shoes" "Expert Intricate Gloves" "Expert Iron Cuirass" "Expert Keth Raiment" "Expert Leaden Greathammer" "Expert Lizardscale Boots" "Expert Moulded Mitts" "Expert Omen Crest Shield" "Expert Pathfinder Coat" "Expert Pelt Leggings" "Expert Pelt Mantle" "Expert Plumed Focus" "Expert Rogue Armour" "Expert Sacrificial Mantle" "Expert Scale Mail" "Expert Scalper's Jacket" "Expert Serpentscale Coat" "Expert Shaman Mantle" "Expert Shielded Helm" "Expert Slicing Quarterstaff" "Expert Spined Bracers" "Expert Spiral Wraps" "Expert Stacked Sabatons" "Expert Steel Plate" "Expert Stone Greaves" "Expert Stone Tower Shield" "Expert Studded Vest" "Expert Tribal Mask" "Expert Vaal Cuirass" "Expert Waxed Jacket" "Expert Wayfarer Jacket" "Omen Sceptre" "Primed Quiver" "Rattling Sceptre" "Siphoning Wand" "Voltaic Staff"
 	AreaLevel >= 65
 
-Show # %D3 $type->endgame->normalcraft->any $tier->t2onlevel
-	Mirrored False
-	Corrupted False
-	Rarity Normal Magic
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	BaseType == "Advanced Altar Robe" "Advanced Sacrificial Mantle" "Advanced Scale Mail" "Advanced Scalper's Jacket" "Advanced Serpentscale Coat" "Advanced Vaal Cuirass" "Expert Aged Cuffs" "Expert Antler Focus" "Expert Bolstered Mitts" "Expert Braced Sabatons" "Expert Braced Tower Shield" "Expert Chain Tiara" "Expert Construct Hammer" "Expert Cowled Helm" "Expert Crescent Quarterstaff" "Expert Crescent Targe" "Expert Crystal Focus" "Expert Cultist Greathammer" "Expert Dyad Crossbow" "Expert Face Mask" "Expert Felt Cap" "Expert Firm Bracers" "Expert Frayed Shoes" "Expert Gauze Wraps" "Expert Guarded Helm" "Expert Horned Crown" "Expert Iron Greaves" "Expert Jewelled Gloves" "Expert Jingling Crest Shield" "Expert Laced Boots" "Expert Layered Gauntlets" "Expert Linen Wraps" "Expert Long Quarterstaff" "Expert Mail Sabatons" "Expert Martyr Crown" "Expert Oak Greathammer" "Expert Padded Leggings" "Expert Pelage Targe" "Expert Plated Buckler" "Expert Rampart Tower Shield" "Expert Ringmail Gauntlets" "Expert Riveted Mitts" "Expert Rope Cuffs" "Expert Sectioned Bracers" "Expert Secured Leggings" "Expert Sigil Crest Shield" "Expert Silk Slippers" "Expert Soldier Greathelm" "Expert Sombre Gloves" "Expert Spiked Buckler" "Expert Spired Greathelm" "Expert Steeltoe Boots" "Expert Swathed Cap" "Expert Tense Crossbow" "Expert Threaded Shoes" "Expert Trimmed Greaves" "Expert Veiled Mask" "Expert Warden Bow" "Expert Warpick" "Expert Wicker Tiara" "Expert Wrapped Sandals" "Expert Zealot Bow" "Gelid Staff" "Penetrating Quiver" "Pyrophyte Staff" "Stoic Sceptre" "Visceral Quiver" "Volant Quiver" "Volatile Wand" "Withered Wand"
-	AreaLevel >= 65
-	AreaLevel <= 75
+#Show # %D3 $type->endgame->normalcraft->any $tier->t2onlevel
+#	Mirrored False
+#	Corrupted False
+#	Rarity Normal Magic
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	BaseType == "Advanced Altar Robe" "Advanced Sacrificial Mantle" "Advanced Scale Mail" "Advanced Scalper's Jacket" "Advanced Serpentscale Coat" "Advanced Vaal Cuirass" "Expert Aged Cuffs" "Expert Antler Focus" "Expert Bolstered Mitts" "Expert Braced Sabatons" "Expert Braced Tower Shield" "Expert Chain Tiara" "Expert Construct Hammer" "Expert Cowled Helm" "Expert Crescent Quarterstaff" "Expert Crescent Targe" "Expert Crystal Focus" "Expert Cultist Greathammer" "Expert Dyad Crossbow" "Expert Face Mask" "Expert Felt Cap" "Expert Firm Bracers" "Expert Frayed Shoes" "Expert Gauze Wraps" "Expert Guarded Helm" "Expert Horned Crown" "Expert Iron Greaves" "Expert Jewelled Gloves" "Expert Jingling Crest Shield" "Expert Laced Boots" "Expert Layered Gauntlets" "Expert Linen Wraps" "Expert Long Quarterstaff" "Expert Mail Sabatons" "Expert Martyr Crown" "Expert Oak Greathammer" "Expert Padded Leggings" "Expert Pelage Targe" "Expert Plated Buckler" "Expert Rampart Tower Shield" "Expert Ringmail Gauntlets" "Expert Riveted Mitts" "Expert Rope Cuffs" "Expert Sectioned Bracers" "Expert Secured Leggings" "Expert Sigil Crest Shield" "Expert Silk Slippers" "Expert Soldier Greathelm" "Expert Sombre Gloves" "Expert Spiked Buckler" "Expert Spired Greathelm" "Expert Steeltoe Boots" "Expert Swathed Cap" "Expert Tense Crossbow" "Expert Threaded Shoes" "Expert Trimmed Greaves" "Expert Veiled Mask" "Expert Warden Bow" "Expert Warpick" "Expert Wicker Tiara" "Expert Wrapped Sandals" "Expert Zealot Bow" "Gelid Staff" "Penetrating Quiver" "Pyrophyte Staff" "Stoic Sceptre" "Visceral Quiver" "Volant Quiver" "Volatile Wand" "Withered Wand"
+#	AreaLevel >= 65
+#	AreaLevel <= 75
 
-Show # %D2 $type->endgame->normalcraft->any $tier->t3onlevel
-	Mirrored False
-	Corrupted False
-	Rarity Normal Magic
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	BaseType == "Advanced Aged Cuffs" "Advanced Anchorite Garb" "Advanced Barrier Quarterstaff" "Advanced Bolstered Mitts" "Advanced Bombard Crossbow" "Advanced Braced Sabatons" "Advanced Chain Tiara" "Advanced Doubled Gauntlets" "Advanced Dualstring Bow" "Advanced Edged Buckler" "Advanced Elite Greathelm" "Advanced Explorer Armour" "Advanced Feathered Sandals" "Advanced Feathered Targe" "Advanced Feathered Tiara" "Advanced Full Plate" "Advanced Goldcast Cuffs" "Advanced Heavy Crown" "Advanced Heraldric Tower Shield" "Advanced Hunter Hood" "Advanced Hunting Shoes" "Advanced Intricate Gloves" "Advanced Ironclad Vestments" "Advanced Jewelled Gloves" "Advanced Layered Gauntlets" "Advanced Linen Wraps" "Advanced Lizardscale Boots" "Advanced Moulded Mitts" "Advanced Omen Crest Shield" "Advanced Pelt Leggings" "Advanced Plumed Focus" "Advanced Ringed Buckler" "Advanced Scout's Vest" "Advanced Sectioned Bracers" "Advanced Secured Leggings" "Advanced Shielded Helm" "Advanced Silk Slippers" "Advanced Spined Bracers" "Advanced Spiral Wraps" "Advanced Spired Greathelm" "Advanced Stacked Sabatons" "Advanced Steeltoe Boots" "Advanced Stone Greaves" "Advanced Stone Tower Shield" "Advanced Swathed Cap" "Advanced Threaded Shoes" "Advanced Tribal Mask" "Advanced Trimmed Greaves" "Advanced Voodoo Focus" "Advanced Votive Raiment" "Ashen Staff" "Bone Wand" "Expert Composite Bow" "Expert Crackling Quarterstaff" "Expert Crumbling Maul" "Expert Cultist Bow" "Expert Forge Maul" "Expert Gothic Quarterstaff" "Expert Plated Mace" "Expert Shortbow" "Expert Slim Mace" "Expert Smithing Hammer" "Expert Sturdy Crossbow" "Expert Temple Maul" "Expert Varnished Crossbow" "Shrine Sceptre" "Toxic Quiver" "Two-Point Quiver"
-	AreaLevel >= 65
-	AreaLevel <= 70
+#Show # %D2 $type->endgame->normalcraft->any $tier->t3onlevel
+#	Mirrored False
+#	Corrupted False
+#	Rarity Normal Magic
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	BaseType == "Advanced Aged Cuffs" "Advanced Anchorite Garb" "Advanced Barrier Quarterstaff" "Advanced Bolstered Mitts" "Advanced Bombard Crossbow" "Advanced Braced Sabatons" "Advanced Chain Tiara" "Advanced Doubled Gauntlets" "Advanced Dualstring Bow" "Advanced Edged Buckler" "Advanced Elite Greathelm" "Advanced Explorer Armour" "Advanced Feathered Sandals" "Advanced Feathered Targe" "Advanced Feathered Tiara" "Advanced Full Plate" "Advanced Goldcast Cuffs" "Advanced Heavy Crown" "Advanced Heraldric Tower Shield" "Advanced Hunter Hood" "Advanced Hunting Shoes" "Advanced Intricate Gloves" "Advanced Ironclad Vestments" "Advanced Jewelled Gloves" "Advanced Layered Gauntlets" "Advanced Linen Wraps" "Advanced Lizardscale Boots" "Advanced Moulded Mitts" "Advanced Omen Crest Shield" "Advanced Pelt Leggings" "Advanced Plumed Focus" "Advanced Ringed Buckler" "Advanced Scout's Vest" "Advanced Sectioned Bracers" "Advanced Secured Leggings" "Advanced Shielded Helm" "Advanced Silk Slippers" "Advanced Spined Bracers" "Advanced Spiral Wraps" "Advanced Spired Greathelm" "Advanced Stacked Sabatons" "Advanced Steeltoe Boots" "Advanced Stone Greaves" "Advanced Stone Tower Shield" "Advanced Swathed Cap" "Advanced Threaded Shoes" "Advanced Tribal Mask" "Advanced Trimmed Greaves" "Advanced Voodoo Focus" "Advanced Votive Raiment" "Ashen Staff" "Bone Wand" "Expert Composite Bow" "Expert Crackling Quarterstaff" "Expert Crumbling Maul" "Expert Cultist Bow" "Expert Forge Maul" "Expert Gothic Quarterstaff" "Expert Plated Mace" "Expert Shortbow" "Expert Slim Mace" "Expert Smithing Hammer" "Expert Sturdy Crossbow" "Expert Temple Maul" "Expert Varnished Crossbow" "Shrine Sceptre" "Toxic Quiver" "Two-Point Quiver"
+#	AreaLevel >= 65
+#	AreaLevel <= 70
 
 #------------------------------------
 #   [0806] Normal, Magic Crafting: Rings+Amulets
@@ -624,15 +748,15 @@ Show # %D5 $type->endgame->jewellery $tier->ringamut2ideallevel
 	SetFontSize 42
 	SetBackgroundColor 30 0 70 255
 
-Show # %D3 $type->endgame->jewellery $tier->ringamut3ideallevel
-	Mirrored False
-	Corrupted False
-	ItemLevel >= 82
-	Rarity Normal Magic
-	Class == "Amulets" "Rings"
-	BaseType == "Crimson Amulet" "Emerald Ring" "Iron Ring"
-	AreaLevel >= 65
-	SetFontSize 40
+#Show # %D3 $type->endgame->jewellery $tier->ringamut3ideallevel
+#	Mirrored False
+#	Corrupted False
+#	ItemLevel >= 82
+#	Rarity Normal Magic
+#	Class == "Amulets" "Rings"
+#	BaseType == "Crimson Amulet" "Emerald Ring" "Iron Ring"
+#	AreaLevel >= 65
+#	SetFontSize 40
 
 Show # %D5 $type->endgame->jewellery $tier->ringamut1
 	Mirrored False
@@ -654,14 +778,14 @@ Show # %D5 $type->endgame->jewellery $tier->ringamut2
 	SetFontSize 40
 	SetBackgroundColor 30 0 70 255
 
-Show # %D3 $type->endgame->jewellery $tier->ringamut3
-	Mirrored False
-	Corrupted False
-	Rarity Normal Magic
-	Class == "Amulets" "Rings"
-	BaseType == "Crimson Amulet" "Emerald Ring" "Iron Ring"
-	AreaLevel >= 65
-	SetFontSize 38
+#Show # %D3 $type->endgame->jewellery $tier->ringamut3
+#	Mirrored False
+#	Corrupted False
+#	Rarity Normal Magic
+#	Class == "Amulets" "Rings"
+#	BaseType == "Crimson Amulet" "Emerald Ring" "Iron Ring"
+#	AreaLevel >= 65
+#	SetFontSize 38
 
 #------------------------------------
 #   [0807] Normal, Magic Crafting: Belts
@@ -707,14 +831,14 @@ Show # %D4 $type->endgame->jewellery $tier->beltst1
 	SetFontSize 40
 	SetBackgroundColor 30 0 70 255
 
-Show # %D3 $type->endgame->jewellery $tier->beltst2
-	Mirrored False
-	Corrupted False
-	Rarity Normal Magic
-	Class == "Belts"
-	BaseType == "Double Belt" "Fine Belt" "Heavy Belt" "Linen Belt" "Long Belt" "Mail Belt" "Ornate Belt" "Rawhide Belt" "Wide Belt"
-	AreaLevel >= 65
-	SetFontSize 38
+#Show # %D3 $type->endgame->jewellery $tier->beltst2
+#	Mirrored False
+#	Corrupted False
+#	Rarity Normal Magic
+#	Class == "Belts"
+#	BaseType == "Double Belt" "Fine Belt" "Heavy Belt" "Linen Belt" "Long Belt" "Mail Belt" "Ornate Belt" "Rawhide Belt" "Wide Belt"
+#	AreaLevel >= 65
+#	SetFontSize 38
 
 #Show  # %D2 $type->endgame->jewellery $tier->beltst3
 #	Mirrored False
@@ -1112,14 +1236,14 @@ Show # %D4 $type->rr $tier->t2_top
 	SetFontSize 40
 	SetBackgroundColor 20 20 0 255
 
-Show # %D3 $type->rr $tier->t2_a1
-	ItemLevel >= 75
-	ItemLevel <= 81
-	Rarity Rare
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	BaseType == "Advanced Altar Robe" "Advanced Sacrificial Mantle" "Advanced Scale Mail" "Advanced Scalper's Jacket" "Advanced Serpentscale Coat" "Advanced Vaal Cuirass" "Expert Aged Cuffs" "Expert Antler Focus" "Expert Bolstered Mitts" "Expert Braced Sabatons" "Expert Braced Tower Shield" "Expert Chain Tiara" "Expert Construct Hammer" "Expert Cowled Helm" "Expert Crescent Quarterstaff" "Expert Crescent Targe" "Expert Crystal Focus" "Expert Cultist Greathammer" "Expert Dyad Crossbow" "Expert Face Mask" "Expert Felt Cap" "Expert Firm Bracers" "Expert Frayed Shoes" "Expert Gauze Wraps" "Expert Guarded Helm" "Expert Horned Crown" "Expert Iron Greaves" "Expert Jewelled Gloves" "Expert Jingling Crest Shield" "Expert Laced Boots" "Expert Layered Gauntlets" "Expert Linen Wraps" "Expert Long Quarterstaff" "Expert Mail Sabatons" "Expert Martyr Crown" "Expert Oak Greathammer" "Expert Padded Leggings" "Expert Pelage Targe" "Expert Plated Buckler" "Expert Rampart Tower Shield" "Expert Ringmail Gauntlets" "Expert Riveted Mitts" "Expert Rope Cuffs" "Expert Sectioned Bracers" "Expert Secured Leggings" "Expert Sigil Crest Shield" "Expert Silk Slippers" "Expert Soldier Greathelm" "Expert Sombre Gloves" "Expert Spiked Buckler" "Expert Spired Greathelm" "Expert Steeltoe Boots" "Expert Swathed Cap" "Expert Tense Crossbow" "Expert Threaded Shoes" "Expert Trimmed Greaves" "Expert Veiled Mask" "Expert Warden Bow" "Expert Warpick" "Expert Wicker Tiara" "Expert Wrapped Sandals" "Expert Zealot Bow" "Gelid Staff" "Penetrating Quiver" "Pyrophyte Staff" "Stoic Sceptre" "Visceral Quiver" "Volant Quiver" "Volatile Wand" "Withered Wand"
-	SetFontSize 38
-	SetBackgroundColor 35 35 35 240
+#Show # %D3 $type->rr $tier->t2_a1
+#	ItemLevel >= 75
+#	ItemLevel <= 81
+#	Rarity Rare
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	BaseType == "Advanced Altar Robe" "Advanced Sacrificial Mantle" "Advanced Scale Mail" "Advanced Scalper's Jacket" "Advanced Serpentscale Coat" "Advanced Vaal Cuirass" "Expert Aged Cuffs" "Expert Antler Focus" "Expert Bolstered Mitts" "Expert Braced Sabatons" "Expert Braced Tower Shield" "Expert Chain Tiara" "Expert Construct Hammer" "Expert Cowled Helm" "Expert Crescent Quarterstaff" "Expert Crescent Targe" "Expert Crystal Focus" "Expert Cultist Greathammer" "Expert Dyad Crossbow" "Expert Face Mask" "Expert Felt Cap" "Expert Firm Bracers" "Expert Frayed Shoes" "Expert Gauze Wraps" "Expert Guarded Helm" "Expert Horned Crown" "Expert Iron Greaves" "Expert Jewelled Gloves" "Expert Jingling Crest Shield" "Expert Laced Boots" "Expert Layered Gauntlets" "Expert Linen Wraps" "Expert Long Quarterstaff" "Expert Mail Sabatons" "Expert Martyr Crown" "Expert Oak Greathammer" "Expert Padded Leggings" "Expert Pelage Targe" "Expert Plated Buckler" "Expert Rampart Tower Shield" "Expert Ringmail Gauntlets" "Expert Riveted Mitts" "Expert Rope Cuffs" "Expert Sectioned Bracers" "Expert Secured Leggings" "Expert Sigil Crest Shield" "Expert Silk Slippers" "Expert Soldier Greathelm" "Expert Sombre Gloves" "Expert Spiked Buckler" "Expert Spired Greathelm" "Expert Steeltoe Boots" "Expert Swathed Cap" "Expert Tense Crossbow" "Expert Threaded Shoes" "Expert Trimmed Greaves" "Expert Veiled Mask" "Expert Warden Bow" "Expert Warpick" "Expert Wicker Tiara" "Expert Wrapped Sandals" "Expert Zealot Bow" "Gelid Staff" "Penetrating Quiver" "Pyrophyte Staff" "Stoic Sceptre" "Visceral Quiver" "Volant Quiver" "Volatile Wand" "Withered Wand"
+#	SetFontSize 38
+#	SetBackgroundColor 35 35 35 240
 
 Show # %D4 $type->rr $tier->t2_other
 	ItemLevel >= 65
@@ -1132,31 +1256,31 @@ Show # %D4 $type->rr $tier->t2_other
 
 # !! Waypoint c6.rare.t3.all : "Rare Endgame Items - T3 (65ish+ gear)
 
-Show # %D3 $type->rr $tier->t3_top
-	ItemLevel >= 82
-	Rarity Rare
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	BaseType == "Advanced Aged Cuffs" "Advanced Anchorite Garb" "Advanced Barrier Quarterstaff" "Advanced Bolstered Mitts" "Advanced Bombard Crossbow" "Advanced Braced Sabatons" "Advanced Chain Tiara" "Advanced Doubled Gauntlets" "Advanced Dualstring Bow" "Advanced Edged Buckler" "Advanced Elite Greathelm" "Advanced Explorer Armour" "Advanced Feathered Sandals" "Advanced Feathered Targe" "Advanced Feathered Tiara" "Advanced Full Plate" "Advanced Goldcast Cuffs" "Advanced Heavy Crown" "Advanced Heraldric Tower Shield" "Advanced Hunter Hood" "Advanced Hunting Shoes" "Advanced Intricate Gloves" "Advanced Ironclad Vestments" "Advanced Jewelled Gloves" "Advanced Layered Gauntlets" "Advanced Linen Wraps" "Advanced Lizardscale Boots" "Advanced Moulded Mitts" "Advanced Omen Crest Shield" "Advanced Pelt Leggings" "Advanced Plumed Focus" "Advanced Ringed Buckler" "Advanced Scout's Vest" "Advanced Sectioned Bracers" "Advanced Secured Leggings" "Advanced Shielded Helm" "Advanced Silk Slippers" "Advanced Spined Bracers" "Advanced Spiral Wraps" "Advanced Spired Greathelm" "Advanced Stacked Sabatons" "Advanced Steeltoe Boots" "Advanced Stone Greaves" "Advanced Stone Tower Shield" "Advanced Swathed Cap" "Advanced Threaded Shoes" "Advanced Tribal Mask" "Advanced Trimmed Greaves" "Advanced Voodoo Focus" "Advanced Votive Raiment" "Ashen Staff" "Bone Wand" "Expert Composite Bow" "Expert Crackling Quarterstaff" "Expert Crumbling Maul" "Expert Cultist Bow" "Expert Forge Maul" "Expert Gothic Quarterstaff" "Expert Plated Mace" "Expert Shortbow" "Expert Slim Mace" "Expert Smithing Hammer" "Expert Sturdy Crossbow" "Expert Temple Maul" "Expert Varnished Crossbow" "Shrine Sceptre" "Toxic Quiver" "Two-Point Quiver"
-	SetFontSize 38
-	SetBackgroundColor 35 35 35 240
+#Show # %D3 $type->rr $tier->t3_top
+#	ItemLevel >= 82
+#	Rarity Rare
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	BaseType == "Advanced Aged Cuffs" "Advanced Anchorite Garb" "Advanced Barrier Quarterstaff" "Advanced Bolstered Mitts" "Advanced Bombard Crossbow" "Advanced Braced Sabatons" "Advanced Chain Tiara" "Advanced Doubled Gauntlets" "Advanced Dualstring Bow" "Advanced Edged Buckler" "Advanced Elite Greathelm" "Advanced Explorer Armour" "Advanced Feathered Sandals" "Advanced Feathered Targe" "Advanced Feathered Tiara" "Advanced Full Plate" "Advanced Goldcast Cuffs" "Advanced Heavy Crown" "Advanced Heraldric Tower Shield" "Advanced Hunter Hood" "Advanced Hunting Shoes" "Advanced Intricate Gloves" "Advanced Ironclad Vestments" "Advanced Jewelled Gloves" "Advanced Layered Gauntlets" "Advanced Linen Wraps" "Advanced Lizardscale Boots" "Advanced Moulded Mitts" "Advanced Omen Crest Shield" "Advanced Pelt Leggings" "Advanced Plumed Focus" "Advanced Ringed Buckler" "Advanced Scout's Vest" "Advanced Sectioned Bracers" "Advanced Secured Leggings" "Advanced Shielded Helm" "Advanced Silk Slippers" "Advanced Spined Bracers" "Advanced Spiral Wraps" "Advanced Spired Greathelm" "Advanced Stacked Sabatons" "Advanced Steeltoe Boots" "Advanced Stone Greaves" "Advanced Stone Tower Shield" "Advanced Swathed Cap" "Advanced Threaded Shoes" "Advanced Tribal Mask" "Advanced Trimmed Greaves" "Advanced Voodoo Focus" "Advanced Votive Raiment" "Ashen Staff" "Bone Wand" "Expert Composite Bow" "Expert Crackling Quarterstaff" "Expert Crumbling Maul" "Expert Cultist Bow" "Expert Forge Maul" "Expert Gothic Quarterstaff" "Expert Plated Mace" "Expert Shortbow" "Expert Slim Mace" "Expert Smithing Hammer" "Expert Sturdy Crossbow" "Expert Temple Maul" "Expert Varnished Crossbow" "Shrine Sceptre" "Toxic Quiver" "Two-Point Quiver"
+#	SetFontSize 38
+#	SetBackgroundColor 35 35 35 240
 
-Show # %D2 $type->rr $tier->t3_a1
-	ItemLevel >= 75
-	ItemLevel <= 81
-	Rarity Rare
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	BaseType == "Advanced Aged Cuffs" "Advanced Anchorite Garb" "Advanced Barrier Quarterstaff" "Advanced Bolstered Mitts" "Advanced Bombard Crossbow" "Advanced Braced Sabatons" "Advanced Chain Tiara" "Advanced Doubled Gauntlets" "Advanced Dualstring Bow" "Advanced Edged Buckler" "Advanced Elite Greathelm" "Advanced Explorer Armour" "Advanced Feathered Sandals" "Advanced Feathered Targe" "Advanced Feathered Tiara" "Advanced Full Plate" "Advanced Goldcast Cuffs" "Advanced Heavy Crown" "Advanced Heraldric Tower Shield" "Advanced Hunter Hood" "Advanced Hunting Shoes" "Advanced Intricate Gloves" "Advanced Ironclad Vestments" "Advanced Jewelled Gloves" "Advanced Layered Gauntlets" "Advanced Linen Wraps" "Advanced Lizardscale Boots" "Advanced Moulded Mitts" "Advanced Omen Crest Shield" "Advanced Pelt Leggings" "Advanced Plumed Focus" "Advanced Ringed Buckler" "Advanced Scout's Vest" "Advanced Sectioned Bracers" "Advanced Secured Leggings" "Advanced Shielded Helm" "Advanced Silk Slippers" "Advanced Spined Bracers" "Advanced Spiral Wraps" "Advanced Spired Greathelm" "Advanced Stacked Sabatons" "Advanced Steeltoe Boots" "Advanced Stone Greaves" "Advanced Stone Tower Shield" "Advanced Swathed Cap" "Advanced Threaded Shoes" "Advanced Tribal Mask" "Advanced Trimmed Greaves" "Advanced Voodoo Focus" "Advanced Votive Raiment" "Ashen Staff" "Bone Wand" "Expert Composite Bow" "Expert Crackling Quarterstaff" "Expert Crumbling Maul" "Expert Cultist Bow" "Expert Forge Maul" "Expert Gothic Quarterstaff" "Expert Plated Mace" "Expert Shortbow" "Expert Slim Mace" "Expert Smithing Hammer" "Expert Sturdy Crossbow" "Expert Temple Maul" "Expert Varnished Crossbow" "Shrine Sceptre" "Toxic Quiver" "Two-Point Quiver"
-	SetFontSize 35
-	SetBackgroundColor 80 80 80 190
+#Show # %D2 $type->rr $tier->t3_a1
+#	ItemLevel >= 75
+#	ItemLevel <= 81
+#	Rarity Rare
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	BaseType == "Advanced Aged Cuffs" "Advanced Anchorite Garb" "Advanced Barrier Quarterstaff" "Advanced Bolstered Mitts" "Advanced Bombard Crossbow" "Advanced Braced Sabatons" "Advanced Chain Tiara" "Advanced Doubled Gauntlets" "Advanced Dualstring Bow" "Advanced Edged Buckler" "Advanced Elite Greathelm" "Advanced Explorer Armour" "Advanced Feathered Sandals" "Advanced Feathered Targe" "Advanced Feathered Tiara" "Advanced Full Plate" "Advanced Goldcast Cuffs" "Advanced Heavy Crown" "Advanced Heraldric Tower Shield" "Advanced Hunter Hood" "Advanced Hunting Shoes" "Advanced Intricate Gloves" "Advanced Ironclad Vestments" "Advanced Jewelled Gloves" "Advanced Layered Gauntlets" "Advanced Linen Wraps" "Advanced Lizardscale Boots" "Advanced Moulded Mitts" "Advanced Omen Crest Shield" "Advanced Pelt Leggings" "Advanced Plumed Focus" "Advanced Ringed Buckler" "Advanced Scout's Vest" "Advanced Sectioned Bracers" "Advanced Secured Leggings" "Advanced Shielded Helm" "Advanced Silk Slippers" "Advanced Spined Bracers" "Advanced Spiral Wraps" "Advanced Spired Greathelm" "Advanced Stacked Sabatons" "Advanced Steeltoe Boots" "Advanced Stone Greaves" "Advanced Stone Tower Shield" "Advanced Swathed Cap" "Advanced Threaded Shoes" "Advanced Tribal Mask" "Advanced Trimmed Greaves" "Advanced Voodoo Focus" "Advanced Votive Raiment" "Ashen Staff" "Bone Wand" "Expert Composite Bow" "Expert Crackling Quarterstaff" "Expert Crumbling Maul" "Expert Cultist Bow" "Expert Forge Maul" "Expert Gothic Quarterstaff" "Expert Plated Mace" "Expert Shortbow" "Expert Slim Mace" "Expert Smithing Hammer" "Expert Sturdy Crossbow" "Expert Temple Maul" "Expert Varnished Crossbow" "Shrine Sceptre" "Toxic Quiver" "Two-Point Quiver"
+#	SetFontSize 35
+#	SetBackgroundColor 80 80 80 190
 
-Show # %D3 $type->rr $tier->t3_a2
-	ItemLevel >= 70
-	ItemLevel <= 74
-	Rarity Rare
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	BaseType == "Advanced Aged Cuffs" "Advanced Anchorite Garb" "Advanced Barrier Quarterstaff" "Advanced Bolstered Mitts" "Advanced Bombard Crossbow" "Advanced Braced Sabatons" "Advanced Chain Tiara" "Advanced Doubled Gauntlets" "Advanced Dualstring Bow" "Advanced Edged Buckler" "Advanced Elite Greathelm" "Advanced Explorer Armour" "Advanced Feathered Sandals" "Advanced Feathered Targe" "Advanced Feathered Tiara" "Advanced Full Plate" "Advanced Goldcast Cuffs" "Advanced Heavy Crown" "Advanced Heraldric Tower Shield" "Advanced Hunter Hood" "Advanced Hunting Shoes" "Advanced Intricate Gloves" "Advanced Ironclad Vestments" "Advanced Jewelled Gloves" "Advanced Layered Gauntlets" "Advanced Linen Wraps" "Advanced Lizardscale Boots" "Advanced Moulded Mitts" "Advanced Omen Crest Shield" "Advanced Pelt Leggings" "Advanced Plumed Focus" "Advanced Ringed Buckler" "Advanced Scout's Vest" "Advanced Sectioned Bracers" "Advanced Secured Leggings" "Advanced Shielded Helm" "Advanced Silk Slippers" "Advanced Spined Bracers" "Advanced Spiral Wraps" "Advanced Spired Greathelm" "Advanced Stacked Sabatons" "Advanced Steeltoe Boots" "Advanced Stone Greaves" "Advanced Stone Tower Shield" "Advanced Swathed Cap" "Advanced Threaded Shoes" "Advanced Tribal Mask" "Advanced Trimmed Greaves" "Advanced Voodoo Focus" "Advanced Votive Raiment" "Ashen Staff" "Bone Wand" "Expert Composite Bow" "Expert Crackling Quarterstaff" "Expert Crumbling Maul" "Expert Cultist Bow" "Expert Forge Maul" "Expert Gothic Quarterstaff" "Expert Plated Mace" "Expert Shortbow" "Expert Slim Mace" "Expert Smithing Hammer" "Expert Sturdy Crossbow" "Expert Temple Maul" "Expert Varnished Crossbow" "Shrine Sceptre" "Toxic Quiver" "Two-Point Quiver"
-	SetFontSize 38
-	SetBackgroundColor 35 35 35 240
+#Show # %D3 $type->rr $tier->t3_a2
+#	ItemLevel >= 70
+#	ItemLevel <= 74
+#	Rarity Rare
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	BaseType == "Advanced Aged Cuffs" "Advanced Anchorite Garb" "Advanced Barrier Quarterstaff" "Advanced Bolstered Mitts" "Advanced Bombard Crossbow" "Advanced Braced Sabatons" "Advanced Chain Tiara" "Advanced Doubled Gauntlets" "Advanced Dualstring Bow" "Advanced Edged Buckler" "Advanced Elite Greathelm" "Advanced Explorer Armour" "Advanced Feathered Sandals" "Advanced Feathered Targe" "Advanced Feathered Tiara" "Advanced Full Plate" "Advanced Goldcast Cuffs" "Advanced Heavy Crown" "Advanced Heraldric Tower Shield" "Advanced Hunter Hood" "Advanced Hunting Shoes" "Advanced Intricate Gloves" "Advanced Ironclad Vestments" "Advanced Jewelled Gloves" "Advanced Layered Gauntlets" "Advanced Linen Wraps" "Advanced Lizardscale Boots" "Advanced Moulded Mitts" "Advanced Omen Crest Shield" "Advanced Pelt Leggings" "Advanced Plumed Focus" "Advanced Ringed Buckler" "Advanced Scout's Vest" "Advanced Sectioned Bracers" "Advanced Secured Leggings" "Advanced Shielded Helm" "Advanced Silk Slippers" "Advanced Spined Bracers" "Advanced Spiral Wraps" "Advanced Spired Greathelm" "Advanced Stacked Sabatons" "Advanced Steeltoe Boots" "Advanced Stone Greaves" "Advanced Stone Tower Shield" "Advanced Swathed Cap" "Advanced Threaded Shoes" "Advanced Tribal Mask" "Advanced Trimmed Greaves" "Advanced Voodoo Focus" "Advanced Votive Raiment" "Ashen Staff" "Bone Wand" "Expert Composite Bow" "Expert Crackling Quarterstaff" "Expert Crumbling Maul" "Expert Cultist Bow" "Expert Forge Maul" "Expert Gothic Quarterstaff" "Expert Plated Mace" "Expert Shortbow" "Expert Slim Mace" "Expert Smithing Hammer" "Expert Sturdy Crossbow" "Expert Temple Maul" "Expert Varnished Crossbow" "Shrine Sceptre" "Toxic Quiver" "Two-Point Quiver"
+#	SetFontSize 38
+#	SetBackgroundColor 35 35 35 240
 
 Show # %D4 $type->rr $tier->t3_other
 	ItemLevel >= 65
@@ -1169,56 +1293,56 @@ Show # %D4 $type->rr $tier->t3_other
 
 # !! Waypoint c6.rare.t4.all : "Rare Endgame Items - T4 (55ish+ gear)
 
-Show # %D1 $type->rr $tier->t4_a1
-	ItemLevel >= 75
-	Rarity Rare
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	BaseType == "Advanced Beaded Circlet" "Advanced Bound Bracers" "Advanced Brigand Mace" "Advanced Bronze Greaves" "Advanced Chiseled Targe" "Advanced Cloaked Mail" "Advanced Composite Bow" "Advanced Construct Hammer" "Advanced Cowled Helm" "Advanced Crescent Quarterstaff" "Advanced Crumbling Maul" "Advanced Crystal Focus" "Advanced Cultist Crown" "Advanced Dyad Crossbow" "Advanced Embossed Boots" "Advanced Felt Cap" "Advanced Firm Bracers" "Advanced Forlorn Crossbow" "Advanced Frayed Shoes" "Advanced Gauze Wraps" "Advanced Hooded Mask" "Advanced Iron Greaves" "Advanced Keth Raiment" "Advanced Lace Hood" "Advanced Laced Boots" "Advanced Lattice Sandals" "Advanced Leaden Greathammer" "Advanced Mail Sabatons" "Advanced Maraketh Cuirass" "Advanced Martyr Crown" "Advanced Padded Leggings" "Advanced Plated Mace" "Advanced Rampart Tower Shield" "Advanced Rhoahide Coat" "Advanced Ringmail Gauntlets" "Advanced Riveted Mitts" "Advanced Rope Cuffs" "Advanced Sectarian Crest Shield" "Advanced Shaman Mantle" "Advanced Silk Robe" "Advanced Slicing Quarterstaff" "Advanced Soldier Greathelm" "Advanced Sombre Gloves" "Advanced Spiked Buckler" "Advanced Steel Plate" "Advanced Stitched Gloves" "Advanced Studded Vest" "Advanced Tempered Mitts" "Advanced Veiled Mask" "Advanced Visored Helm" "Advanced Warden Bow" "Advanced Wayfarer Jacket" "Advanced Wicker Tiara" "Advanced Wrapped Greathelm" "Advanced Wrapped Sandals" "Advanced Zealot Bow"
-	SetFontSize 35
-	SetBackgroundColor 80 80 80 190
+#Show # %D1 $type->rr $tier->t4_a1
+#	ItemLevel >= 75
+#	Rarity Rare
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	BaseType == "Advanced Beaded Circlet" "Advanced Bound Bracers" "Advanced Brigand Mace" "Advanced Bronze Greaves" "Advanced Chiseled Targe" "Advanced Cloaked Mail" "Advanced Composite Bow" "Advanced Construct Hammer" "Advanced Cowled Helm" "Advanced Crescent Quarterstaff" "Advanced Crumbling Maul" "Advanced Crystal Focus" "Advanced Cultist Crown" "Advanced Dyad Crossbow" "Advanced Embossed Boots" "Advanced Felt Cap" "Advanced Firm Bracers" "Advanced Forlorn Crossbow" "Advanced Frayed Shoes" "Advanced Gauze Wraps" "Advanced Hooded Mask" "Advanced Iron Greaves" "Advanced Keth Raiment" "Advanced Lace Hood" "Advanced Laced Boots" "Advanced Lattice Sandals" "Advanced Leaden Greathammer" "Advanced Mail Sabatons" "Advanced Maraketh Cuirass" "Advanced Martyr Crown" "Advanced Padded Leggings" "Advanced Plated Mace" "Advanced Rampart Tower Shield" "Advanced Rhoahide Coat" "Advanced Ringmail Gauntlets" "Advanced Riveted Mitts" "Advanced Rope Cuffs" "Advanced Sectarian Crest Shield" "Advanced Shaman Mantle" "Advanced Silk Robe" "Advanced Slicing Quarterstaff" "Advanced Soldier Greathelm" "Advanced Sombre Gloves" "Advanced Spiked Buckler" "Advanced Steel Plate" "Advanced Stitched Gloves" "Advanced Studded Vest" "Advanced Tempered Mitts" "Advanced Veiled Mask" "Advanced Visored Helm" "Advanced Warden Bow" "Advanced Wayfarer Jacket" "Advanced Wicker Tiara" "Advanced Wrapped Greathelm" "Advanced Wrapped Sandals" "Advanced Zealot Bow"
+#	SetFontSize 35
+#	SetBackgroundColor 80 80 80 190
 
-Show # %D2 $type->rr $tier->t4_a2
-	ItemLevel >= 70
-	ItemLevel <= 74
-	Rarity Rare
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	BaseType == "Advanced Beaded Circlet" "Advanced Bound Bracers" "Advanced Brigand Mace" "Advanced Bronze Greaves" "Advanced Chiseled Targe" "Advanced Cloaked Mail" "Advanced Composite Bow" "Advanced Construct Hammer" "Advanced Cowled Helm" "Advanced Crescent Quarterstaff" "Advanced Crumbling Maul" "Advanced Crystal Focus" "Advanced Cultist Crown" "Advanced Dyad Crossbow" "Advanced Embossed Boots" "Advanced Felt Cap" "Advanced Firm Bracers" "Advanced Forlorn Crossbow" "Advanced Frayed Shoes" "Advanced Gauze Wraps" "Advanced Hooded Mask" "Advanced Iron Greaves" "Advanced Keth Raiment" "Advanced Lace Hood" "Advanced Laced Boots" "Advanced Lattice Sandals" "Advanced Leaden Greathammer" "Advanced Mail Sabatons" "Advanced Maraketh Cuirass" "Advanced Martyr Crown" "Advanced Padded Leggings" "Advanced Plated Mace" "Advanced Rampart Tower Shield" "Advanced Rhoahide Coat" "Advanced Ringmail Gauntlets" "Advanced Riveted Mitts" "Advanced Rope Cuffs" "Advanced Sectarian Crest Shield" "Advanced Shaman Mantle" "Advanced Silk Robe" "Advanced Slicing Quarterstaff" "Advanced Soldier Greathelm" "Advanced Sombre Gloves" "Advanced Spiked Buckler" "Advanced Steel Plate" "Advanced Stitched Gloves" "Advanced Studded Vest" "Advanced Tempered Mitts" "Advanced Veiled Mask" "Advanced Visored Helm" "Advanced Warden Bow" "Advanced Wayfarer Jacket" "Advanced Wicker Tiara" "Advanced Wrapped Greathelm" "Advanced Wrapped Sandals" "Advanced Zealot Bow"
-	SetFontSize 38
-	SetBackgroundColor 35 35 35 240
+#Show # %D2 $type->rr $tier->t4_a2
+#	ItemLevel >= 70
+#	ItemLevel <= 74
+#	Rarity Rare
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	BaseType == "Advanced Beaded Circlet" "Advanced Bound Bracers" "Advanced Brigand Mace" "Advanced Bronze Greaves" "Advanced Chiseled Targe" "Advanced Cloaked Mail" "Advanced Composite Bow" "Advanced Construct Hammer" "Advanced Cowled Helm" "Advanced Crescent Quarterstaff" "Advanced Crumbling Maul" "Advanced Crystal Focus" "Advanced Cultist Crown" "Advanced Dyad Crossbow" "Advanced Embossed Boots" "Advanced Felt Cap" "Advanced Firm Bracers" "Advanced Forlorn Crossbow" "Advanced Frayed Shoes" "Advanced Gauze Wraps" "Advanced Hooded Mask" "Advanced Iron Greaves" "Advanced Keth Raiment" "Advanced Lace Hood" "Advanced Laced Boots" "Advanced Lattice Sandals" "Advanced Leaden Greathammer" "Advanced Mail Sabatons" "Advanced Maraketh Cuirass" "Advanced Martyr Crown" "Advanced Padded Leggings" "Advanced Plated Mace" "Advanced Rampart Tower Shield" "Advanced Rhoahide Coat" "Advanced Ringmail Gauntlets" "Advanced Riveted Mitts" "Advanced Rope Cuffs" "Advanced Sectarian Crest Shield" "Advanced Shaman Mantle" "Advanced Silk Robe" "Advanced Slicing Quarterstaff" "Advanced Soldier Greathelm" "Advanced Sombre Gloves" "Advanced Spiked Buckler" "Advanced Steel Plate" "Advanced Stitched Gloves" "Advanced Studded Vest" "Advanced Tempered Mitts" "Advanced Veiled Mask" "Advanced Visored Helm" "Advanced Warden Bow" "Advanced Wayfarer Jacket" "Advanced Wicker Tiara" "Advanced Wrapped Greathelm" "Advanced Wrapped Sandals" "Advanced Zealot Bow"
+#	SetFontSize 38
+#	SetBackgroundColor 35 35 35 240
 
-Show # %D3 $type->rr $tier->t4_other
-	ItemLevel >= 65
-	ItemLevel <= 69
-	Rarity Rare
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	BaseType == "Advanced Beaded Circlet" "Advanced Bound Bracers" "Advanced Brigand Mace" "Advanced Bronze Greaves" "Advanced Chiseled Targe" "Advanced Cloaked Mail" "Advanced Composite Bow" "Advanced Construct Hammer" "Advanced Cowled Helm" "Advanced Crescent Quarterstaff" "Advanced Crumbling Maul" "Advanced Crystal Focus" "Advanced Cultist Crown" "Advanced Dyad Crossbow" "Advanced Embossed Boots" "Advanced Felt Cap" "Advanced Firm Bracers" "Advanced Forlorn Crossbow" "Advanced Frayed Shoes" "Advanced Gauze Wraps" "Advanced Hooded Mask" "Advanced Iron Greaves" "Advanced Keth Raiment" "Advanced Lace Hood" "Advanced Laced Boots" "Advanced Lattice Sandals" "Advanced Leaden Greathammer" "Advanced Mail Sabatons" "Advanced Maraketh Cuirass" "Advanced Martyr Crown" "Advanced Padded Leggings" "Advanced Plated Mace" "Advanced Rampart Tower Shield" "Advanced Rhoahide Coat" "Advanced Ringmail Gauntlets" "Advanced Riveted Mitts" "Advanced Rope Cuffs" "Advanced Sectarian Crest Shield" "Advanced Shaman Mantle" "Advanced Silk Robe" "Advanced Slicing Quarterstaff" "Advanced Soldier Greathelm" "Advanced Sombre Gloves" "Advanced Spiked Buckler" "Advanced Steel Plate" "Advanced Stitched Gloves" "Advanced Studded Vest" "Advanced Tempered Mitts" "Advanced Veiled Mask" "Advanced Visored Helm" "Advanced Warden Bow" "Advanced Wayfarer Jacket" "Advanced Wicker Tiara" "Advanced Wrapped Greathelm" "Advanced Wrapped Sandals" "Advanced Zealot Bow"
-	SetFontSize 38
-	SetBackgroundColor 35 35 35 240
+#Show # %D3 $type->rr $tier->t4_other
+#	ItemLevel >= 65
+#	ItemLevel <= 69
+#	Rarity Rare
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	BaseType == "Advanced Beaded Circlet" "Advanced Bound Bracers" "Advanced Brigand Mace" "Advanced Bronze Greaves" "Advanced Chiseled Targe" "Advanced Cloaked Mail" "Advanced Composite Bow" "Advanced Construct Hammer" "Advanced Cowled Helm" "Advanced Crescent Quarterstaff" "Advanced Crumbling Maul" "Advanced Crystal Focus" "Advanced Cultist Crown" "Advanced Dyad Crossbow" "Advanced Embossed Boots" "Advanced Felt Cap" "Advanced Firm Bracers" "Advanced Forlorn Crossbow" "Advanced Frayed Shoes" "Advanced Gauze Wraps" "Advanced Hooded Mask" "Advanced Iron Greaves" "Advanced Keth Raiment" "Advanced Lace Hood" "Advanced Laced Boots" "Advanced Lattice Sandals" "Advanced Leaden Greathammer" "Advanced Mail Sabatons" "Advanced Maraketh Cuirass" "Advanced Martyr Crown" "Advanced Padded Leggings" "Advanced Plated Mace" "Advanced Rampart Tower Shield" "Advanced Rhoahide Coat" "Advanced Ringmail Gauntlets" "Advanced Riveted Mitts" "Advanced Rope Cuffs" "Advanced Sectarian Crest Shield" "Advanced Shaman Mantle" "Advanced Silk Robe" "Advanced Slicing Quarterstaff" "Advanced Soldier Greathelm" "Advanced Sombre Gloves" "Advanced Spiked Buckler" "Advanced Steel Plate" "Advanced Stitched Gloves" "Advanced Studded Vest" "Advanced Tempered Mitts" "Advanced Veiled Mask" "Advanced Visored Helm" "Advanced Warden Bow" "Advanced Wayfarer Jacket" "Advanced Wicker Tiara" "Advanced Wrapped Greathelm" "Advanced Wrapped Sandals" "Advanced Zealot Bow"
+#	SetFontSize 38
+#	SetBackgroundColor 35 35 35 240
 
 # !! Waypoint c6.rare.t5.all : "Rare Endgame Items - T5 (lower)
 
-Show # %D1 $type->rr $tier->t5_a1
-	ItemLevel >= 75
-	Rarity Rare
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	SetFontSize 35
-	SetBackgroundColor 80 80 80 190
+#Show # %D1 $type->rr $tier->t5_a1
+#	ItemLevel >= 75
+#	Rarity Rare
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	SetFontSize 35
+#	SetBackgroundColor 80 80 80 190
 
-Show # %D2 $type->rr $tier->t5_a2
-	ItemLevel >= 70
-	ItemLevel <= 74
-	Rarity Rare
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	SetFontSize 35
-	SetBackgroundColor 80 80 80 190
+#Show # %D2 $type->rr $tier->t5_a2
+#	ItemLevel >= 70
+#	ItemLevel <= 74
+#	Rarity Rare
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	SetFontSize 35
+#	SetBackgroundColor 80 80 80 190
 
-Show # %D3 $type->rr $tier->t5_other
-	ItemLevel >= 65
-	ItemLevel <= 69
-	Rarity Rare
-	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	SetFontSize 38
-	SetBackgroundColor 35 35 35 240
+#Show # %D3 $type->rr $tier->t5_other
+#	ItemLevel >= 65
+#	ItemLevel <= 69
+#	Rarity Rare
+#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	SetFontSize 38
+#	SetBackgroundColor 35 35 35 240
 
 #===============================================================================================================
 # [[1500]] Untiered Rare Catcher
@@ -1227,21 +1351,21 @@ Show # %D3 $type->rr $tier->t5_other
 
 # Double Quality Currencies
 
-Show # %D3 $type->rare->salvagable $tier->quality2martialany
-	Quality >= 10
-	ItemLevel >= 65
-	Rarity Rare
-	Class == "Bows" "Crossbows" "One Hand Maces" "Quarterstaves" "Two Hand Maces"
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D3 $type->rare->salvagable $tier->quality2martialany
+#	Quality >= 10
+#	ItemLevel >= 65
+#	Rarity Rare
+#	Class == "Bows" "Crossbows" "One Hand Maces" "Quarterstaves" "Two Hand Maces"
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
-Show # %D3 $type->rare->salvagable $tier->quality2casterany
-	Quality >= 10
-	ItemLevel >= 65
-	Rarity Rare
-	Class == "Sceptres" "Staves" "Wands"
-	SetFontSize 38
-	SetBorderColor 180 180 180
+#Show # %D3 $type->rare->salvagable $tier->quality2casterany
+#	Quality >= 10
+#	ItemLevel >= 65
+#	Rarity Rare
+#	Class == "Sceptres" "Staves" "Wands"
+#	SetFontSize 38
+#	SetBorderColor 180 180 180
 
 Show # %D4 $type->rare->salvagable $tier->quality2armorany
 	Quality >= 10
@@ -1253,49 +1377,49 @@ Show # %D4 $type->rare->salvagable $tier->quality2armorany
 
 # Single Quality Currencies
 
-Show # %D2 $type->rare->salvagable $tier->qualitymartialany
-	Quality >= 1
-	ItemLevel >= 65
-	Rarity Rare
-	Class == "Bows" "Crossbows" "One Hand Maces" "Quarterstaves" "Two Hand Maces"
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D2 $type->rare->salvagable $tier->qualitymartialany
+#	Quality >= 1
+#	ItemLevel >= 65
+#	Rarity Rare
+#	Class == "Bows" "Crossbows" "One Hand Maces" "Quarterstaves" "Two Hand Maces"
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
-Show # %D2 $type->rare->salvagable $tier->qualitycasterany
-	Quality >= 1
-	ItemLevel >= 65
-	Rarity Rare
-	Class == "Sceptres" "Staves" "Wands"
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D2 $type->rare->salvagable $tier->qualitycasterany
+#	Quality >= 1
+#	ItemLevel >= 65
+#	Rarity Rare
+#	Class == "Sceptres" "Staves" "Wands"
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
-Show # %D3 $type->rare->salvagable $tier->qualityarmorany
-	Quality >= 1
-	ItemLevel >= 65
-	Rarity Rare
-	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D3 $type->rare->salvagable $tier->qualityarmorany
+#	Quality >= 1
+#	ItemLevel >= 65
+#	Rarity Rare
+#	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
 # Artificer Scraps
 
-Show # %D1 $type->rare->salvagable $tier->socketslarge
-	Sockets > 0
-	Height >= 3
-	ItemLevel >= 65
-	Rarity Rare
-	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D1 $type->rare->salvagable $tier->socketslarge
+#	Sockets > 0
+#	Height >= 3
+#	ItemLevel >= 65
+#	Rarity Rare
+#	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
-Show # %D2 $type->rare->salvagable $tier->socketssmall
-	Sockets > 0
-	Height < 3
-	ItemLevel >= 65
-	Rarity Rare
-	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	SetFontSize 35
-	SetBorderColor 127 127 127
+#Show # %D2 $type->rare->salvagable $tier->socketssmall
+#	Sockets > 0
+#	Height < 3
+#	ItemLevel >= 65
+#	Rarity Rare
+#	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	SetFontSize 35
+#	SetBorderColor 127 127 127
 
 #===============================================================================================================
 # [[1600]] Hide Layer 2 - Rare Gear
@@ -1333,6 +1457,9 @@ Show # %H4 $type->sockets->runes $tier->levelingrunes
 	SetFontSize 38
 	SetTextColor 220 175 132
 	SetBorderColor 220 175 132
+#	CustomAlertSound "1maybevaluable.mp3" 300
+#	PlayEffect White
+#	MinimapIcon 1 Yellow Circle
 
 #Show  # %H6 $type->sockets->runes $tier->t1
 #	Class == "Socketable"
@@ -1353,14 +1480,14 @@ Show # %H5 $type->sockets->runes $tier->t2
 	SetBackgroundColor 76 51 12
 	PlayEffect Yellow Temp
 
-Show # %H3 $type->sockets->runes $tier->t3
+Hide # %H3 $type->sockets->runes $tier->t3
 	Class == "Socketable"
 	BaseType == "Desert Rune" "Glacial Rune" "Inspiration Rune" "Storm Rune"
 	SetFontSize 38
 	SetTextColor 220 175 132
 	SetBorderColor 220 175 132
 
-Show # %H2 $type->sockets->runes $tier->t4
+Hide # %H2 $type->sockets->runes $tier->t4
 	Class == "Socketable"
 	BaseType == "Body Rune" "Mind Rune" "Rebirth Rune" "Stone Rune" "Vision Rune"
 	SetFontSize 38
@@ -1438,13 +1565,11 @@ Show # %H6 $type->sockets->cores $tier->c
 #	PlayEffect White
 #	MinimapIcon 2 White Circle
 
-#Show  # %H3 $type->sockets->cores $tier->e
+#Hide  # # %H3 $type->sockets->cores $tier->e
 #	Class == "Socketable"
 #	SetFontSize 40
 #	SetTextColor 240 207 132
 #	SetBorderColor 240 207 132
-#	PlayEffect White Temp
-#	MinimapIcon 2 Grey Circle
 
 Hide # $type->sockets->cores $tier->exhide
 	Class == "Socketable"
@@ -1631,29 +1756,26 @@ Show # %H5 $type->gems->uncut $tier->supportcampaign
 
 # Lower highlight for lower level gems in maps
 
-Show # %H3 $type->gems->uncut $tier->otherspiriteg
+Hide # %H3 $type->gems->uncut $tier->otherspiriteg
 	BaseType == "Uncut Spirit Gem"
 	AreaLevel >= 65
 	SetFontSize 35
 	SetTextColor 20 240 240
 	SetBorderColor 20 240 240
-	PlayEffect Cyan Temp
 
-Show # %H3 $type->gems->uncut $tier->otherskilleg
+Hide # %H3 $type->gems->uncut $tier->otherskilleg
 	BaseType == "Uncut Skill Gem"
 	AreaLevel >= 65
 	SetFontSize 35
 	SetTextColor 20 240 240
 	SetBorderColor 20 240 240
-	PlayEffect Cyan Temp
 
-Show # %H3 $type->gems->uncut $tier->othersupporteg
+Hide # %H3 $type->gems->uncut $tier->othersupporteg
 	BaseType == "Uncut Support Gem"
 	AreaLevel >= 65
 	SetFontSize 35
 	SetTextColor 20 240 240
 	SetBorderColor 20 240 240
-	PlayEffect Cyan Temp
 
 # Hider for filterblade
 
@@ -1707,6 +1829,9 @@ Show # $type->waystones $tier->decomap1
 	Class == "Waystones"
 	SetFontSize 42
 	SetBorderColor 0 0 0 255
+        CustomAlertSound "5highmaps.mp3" 300
+	PlayEffect Cyan
+	MinimapIcon 1 Red Square
 	Continue
 
 Show # $type->waystones $tier->decomap2
@@ -1715,6 +1840,9 @@ Show # $type->waystones $tier->decomap2
 	Class == "Waystones"
 	SetFontSize 40
 	SetBorderColor 0 0 0 255
+        CustomAlertSound "5highmaps.mp3" 300
+	PlayEffect Cyan
+	MinimapIcon 1 Red Square
 	Continue
 
 Show # $type->waystones $tier->decomap3
@@ -1723,6 +1851,9 @@ Show # $type->waystones $tier->decomap3
 	Class == "Waystones"
 	SetFontSize 40
 	SetBorderColor 200 200 200 255
+        CustomAlertSound "4maps.mp3" 300
+	PlayEffect Cyan
+	MinimapIcon 1 White Square
 	Continue
 
 Show # $type->waystones $tier->decomap4
@@ -1731,6 +1862,9 @@ Show # $type->waystones $tier->decomap4
 	Class == "Waystones"
 	SetFontSize 40
 	SetBorderColor 200 200 200 255
+        CustomAlertSound "4maps.mp3" 300
+	PlayEffect Cyan
+	MinimapIcon 1 White Square
 	Continue
 
 Show # $type->waystones $tier->deco_wsup_t16
@@ -1745,6 +1879,9 @@ Show # $type->waystones $tier->deco_wsup_t15
 	Class == "Waystones"
 	AreaLevel < 79
 	SetBorderColor 220 50 0 255
+        CustomAlertSound "5highmaps.mp3" 300
+	PlayEffect Cyan
+	MinimapIcon 1 Red Square
 	Continue
 
 Show # $type->waystones $tier->deco_wsup_t14
@@ -1943,18 +2080,12 @@ Show # %HS3 $type->waystones $tier->waystone_t13
 	Class == "Waystones"
 	SetTextColor 0 0 0 255
 	SetBackgroundColor 200 200 200 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect Yellow Temp
-	MinimapIcon 1 Yellow Square
 
 Show # %HS3 $type->waystones $tier->waystone_t12
 	WaystoneTier 12
 	Class == "Waystones"
 	SetTextColor 0 0 0 255
 	SetBackgroundColor 200 200 200 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect Yellow Temp
-	MinimapIcon 1 Yellow Square
 
 # !! Waypoint c9.waystone.generic.t11 : "Waystones - t7-t11"
 
@@ -1963,101 +2094,68 @@ Show # %HS3 $type->waystones $tier->waystone_t11
 	Class == "Waystones"
 	SetTextColor 255 255 255 255
 	SetBackgroundColor 20 20 0 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect White Temp
-	MinimapIcon 1 White Square
 
 Show # %HS3 $type->waystones $tier->waystone_t10
 	WaystoneTier 10
 	Class == "Waystones"
 	SetTextColor 255 255 255 255
 	SetBackgroundColor 20 20 0 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect White Temp
-	MinimapIcon 1 White Square
 
 Show # %HS3 $type->waystones $tier->waystone_t9
 	WaystoneTier 9
 	Class == "Waystones"
 	SetTextColor 255 255 255 255
 	SetBackgroundColor 20 20 0 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect White Temp
-	MinimapIcon 1 White Square
 
 Show # %HS3 $type->waystones $tier->waystone_t8
 	WaystoneTier 8
 	Class == "Waystones"
 	SetTextColor 255 255 255 255
 	SetBackgroundColor 20 20 0 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect White Temp
-	MinimapIcon 1 White Square
 
 Show # %HS3 $type->waystones $tier->waystone_t7
 	WaystoneTier 7
 	Class == "Waystones"
 	SetTextColor 255 255 255 255
 	SetBackgroundColor 20 20 0 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect White Temp
-	MinimapIcon 1 White Square
 
 # !! Waypoint c9.waystone.generic.t6 : "Waystones - T1-T6"
 
-Show # %HS2 $type->waystones $tier->waystone_t6
+Hide # %HS2 $type->waystones $tier->waystone_t6
 	WaystoneTier 6
 	Class == "Waystones"
 	SetTextColor 255 255 255 255
 	SetBackgroundColor 20 20 0 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect White Temp
-	MinimapIcon 2 White Square
 
-Show # %HS2 $type->waystones $tier->waystone_t5
+Hide # %HS2 $type->waystones $tier->waystone_t5
 	WaystoneTier 5
 	Class == "Waystones"
 	SetTextColor 255 255 255 255
 	SetBackgroundColor 20 20 0 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect White Temp
-	MinimapIcon 2 White Square
 
-Show # %HS2 $type->waystones $tier->waystone_t4
+Hide # %HS2 $type->waystones $tier->waystone_t4
 	WaystoneTier 4
 	Class == "Waystones"
 	SetTextColor 255 255 255 255
 	SetBackgroundColor 20 20 0 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect White Temp
-	MinimapIcon 2 White Square
 
-Show # %HS2 $type->waystones $tier->waystone_t3
+Hide # %HS2 $type->waystones $tier->waystone_t3
 	WaystoneTier 3
 	Class == "Waystones"
 	SetTextColor 255 255 255 255
 	SetBackgroundColor 20 20 0 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect White Temp
-	MinimapIcon 2 White Square
 
-Show # %HS2 $type->waystones $tier->waystone_t2
+Hide # %HS2 $type->waystones $tier->waystone_t2
 	WaystoneTier 2
 	Class == "Waystones"
 	SetTextColor 255 255 255 255
 	SetBackgroundColor 20 20 0 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect White Temp
-	MinimapIcon 2 White Square
 
-Show # %HS2 $type->waystones $tier->waystone_t1
+Hide # %HS2 $type->waystones $tier->waystone_t1
 	WaystoneTier 1
 	Class == "Waystones"
 	SetTextColor 255 255 255 255
 	SetBackgroundColor 20 20 0 255
-	CustomAlertSound "4maps.mp3" 300
-	PlayEffect White Temp
-	MinimapIcon 2 White Square
 
 Show # $type->waystones $tier->restex
 	Class == "Waystones"
@@ -2094,7 +2192,7 @@ Show # %H4 $type->currency->leveling $tier->magic
 	SetTextColor 220 175 132
 	SetBorderColor 220 175 132
 
-Show # %H3 $type->currency->leveling $tier->wisdomstart
+Hide # %H3 $type->currency->leveling $tier->wisdomstart
 	Class == "Stackable Currency"
 	BaseType == "Scroll of Wisdom"
 	AreaLevel < 17
@@ -2102,7 +2200,7 @@ Show # %H3 $type->currency->leveling $tier->wisdomstart
 	SetTextColor 170 158 130
 	SetBorderColor 170 158 130
 
-Show # %H3 $type->currency->leveling $tier->wisdom
+Hide # %H3 $type->currency->leveling $tier->wisdom
 	Class == "Stackable Currency"
 	BaseType == "Scroll of Wisdom"
 	AreaLevel < 65
@@ -2169,14 +2267,12 @@ Show # %H5 $type->currency $tier->d
 	PlayEffect White
 	MinimapIcon 2 White Circle
 
-Show # %H3 $type->currency $tier->e
+Hide # %H3 $type->currency $tier->e
 	Class == "Stackable Currency"
 	BaseType == "Arcanist's Etcher" "Blacksmith's Whetstone"
 	SetFontSize 40
 	SetTextColor 240 207 132
 	SetBorderColor 240 207 132
-	PlayEffect White Temp
-	MinimapIcon 2 Grey Circle
 
 # Artifacts and special drops
 
@@ -2191,7 +2287,7 @@ Show # $type->currency $tier->artifactlike
 	PlayEffect Yellow Temp
 	MinimapIcon 1 White Kite
 
-Show # %H3 $type->currency $tier->supplymagic
+Hide # %H3 $type->currency $tier->supplymagic
 	Class == "Stackable Currency"
 	BaseType == "Alchemy Shard" "Artificer's Shard" "Orb of Augmentation" "Orb of Transmutation" "Regal Shard"
 	SetFontSize 38
@@ -2354,14 +2450,12 @@ Show # %HS4 $type->currency->catalysts $tier->d
 	PlayEffect White
 	MinimapIcon 2 White Circle
 
-Show # %HS2 $type->currency->catalysts $tier->e
+Hide # %HS2 $type->currency->catalysts $tier->e
 	Class == "Stackable Currency"
 	BaseType == "Carapace Catalyst" "Chayula's Catalyst" "Esh's Catalyst" "Flesh Catalyst" "Reaver Catalyst" "Sibilant Catalyst" "Skittering Catalyst" "Tul's Catalyst" "Uul-Netol's Catalyst" "Xoph's Catalyst"
 	SetFontSize 40
 	SetTextColor 240 207 132
 	SetBorderColor 240 207 132
-	PlayEffect White Temp
-	MinimapIcon 2 Grey Circle
 
 Hide # $type->currency->catalysts $tier->exhide
 	Class == "Stackable Currency"
@@ -2747,16 +2841,13 @@ Show # %H4 $type->miscmapitemsextra $tier->trialkeysanctumhigh
 	PlayEffect Purple Temp
 	MinimapIcon 1 White Hexagon
 
-Show # %H3 $type->miscmapitemsextra $tier->trialkeysanctumlow
+Hide # %H3 $type->miscmapitemsextra $tier->trialkeysanctumlow
 	ItemLevel <= 74
 	BaseType == "Djinn Barya" "Test of Cunning Barya" "Test of Strength Barya" "Test of Time Barya" "Test of Will Barya"
 	SetFontSize 40
 	SetTextColor 200 75 200 255
 	SetBorderColor 200 75 200 255
 	SetBackgroundColor 50 0 75
-	CustomAlertSound "2currency.mp3" 300
-	PlayEffect Purple Temp
-	MinimapIcon 2 White Hexagon
 
 Show # %HS4 $type->miscmapitemsextra $tier->trialkeyultimatumtop
 	ItemLevel >= 80
@@ -2781,16 +2872,13 @@ Show # %H4 $type->miscmapitemsextra $tier->trialkeyultimatumhigh
 	PlayEffect Purple Temp
 	MinimapIcon 1 White Hexagon
 
-Show # %H3 $type->miscmapitemsextra $tier->trialkeyultimatumlow
+Hide # %H3 $type->miscmapitemsextra $tier->trialkeyultimatumlow
 	ItemLevel <= 74
 	BaseType == "Inscribed Ultimatum"
 	SetFontSize 40
 	SetTextColor 200 75 200 255
 	SetBorderColor 200 75 200 255
 	SetBackgroundColor 50 0 75
-	CustomAlertSound "2currency.mp3" 300
-	PlayEffect Purple Temp
-	MinimapIcon 2 White Hexagon
 
 Show # $type->miscmapitemsextra $tier->relickeyssafe
 	Class == "Vault Keys"
@@ -3026,23 +3114,23 @@ Show # %D4 $type->leveling->salvagable $tier->qualityarmorany
 
 # Artificer Scraps
 
-Show # %D3 $type->leveling->salvagable $tier->socketslarge
-	Sockets > 0
-	Height >= 3
-	Rarity Normal Magic
-	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	AreaLevel < 65
-	SetFontSize 40
-	SetBorderColor 127 127 127
+#Show # %D3 $type->leveling->salvagable $tier->socketslarge
+#	Sockets > 0
+#	Height >= 3
+#	Rarity Normal Magic
+#	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	AreaLevel < 65
+#	SetFontSize 40
+#	SetBorderColor 127 127 127
 
-Show # %D3 $type->leveling->salvagable $tier->socketssmall
-	Sockets > 0
-	Height < 3
-	Rarity Normal Magic
-	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	AreaLevel < 65
-	SetFontSize 40
-	SetBorderColor 180 180 180
+#Show # %D3 $type->leveling->salvagable $tier->socketssmall
+#	Sockets > 0
+#	Height < 3
+#	Rarity Normal Magic
+#	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	AreaLevel < 65
+#	SetFontSize 40
+#	SetBorderColor 180 180 180
 
 #===============================================================================================================
 # [[3200]] Leveling - Hide outdated leveling flasks
@@ -3120,13 +3208,13 @@ Show # %D4 $type->leveling->flasks->quality $tier->high
 	SetBorderColor 180 180 180
 	SetBackgroundColor 10 60 40
 
-Show # %D3 $type->leveling->flasks->quality $tier->any
-	Quality >= 1
-	Rarity Normal Magic
-	Class == "Charms" "Life Flasks" "Mana Flasks"
-	SetFontSize 38
-	SetBorderColor 100 100 100
-	SetBackgroundColor 10 60 40
+#Show # %D3 $type->leveling->flasks->quality $tier->any
+#	Quality >= 1
+#	Rarity Normal Magic
+#	Class == "Charms" "Life Flasks" "Mana Flasks"
+#	SetFontSize 38
+#	SetBorderColor 100 100 100
+#	SetBackgroundColor 10 60 40
 
 #------------------------------------
 #   [3301] Life flasks
@@ -3277,13 +3365,13 @@ Show # %D4 $type->leveling->charms $tier->selected
 	SetBorderColor 100 100 100
 	SetBackgroundColor 10 60 40
 
-Show # %D2 $type->leveling->charms $tier->any
-	Rarity Normal Magic
-	Class == "Charms"
-	AreaLevel < 65
-	SetFontSize 40
-	SetBorderColor 100 100 100
-	SetBackgroundColor 10 60 40
+#Show # %D2 $type->leveling->charms $tier->any
+#	Rarity Normal Magic
+#	Class == "Charms"
+#	AreaLevel < 65
+#	SetFontSize 40
+#	SetBorderColor 100 100 100
+#	SetBackgroundColor 10 60 40
 
 #===============================================================================================================
 # [[3400]] Leveling - Rules
@@ -3468,7 +3556,7 @@ Show # %D4 $type->leveling->rare->weapons $tier->quarterstaves
 #------------------------------------
 # !! Waypoint c21.leveling.rares.low : "Leveling - Gear - Low Tier"
 
-Show # %H3 $type->leveling->rare->remaining $tier->any class == "body armours" "gloves" "boots" "helmets" "shields" "foci" "staves" "sceptres" "wands" "one hand maces" "quarterstaves" "two hand maces" "bows" "crossbows" "quivers" "amulets" "belts" "rings"
+Hide # %H3 $type->leveling->rare->remaining $tier->any class == "body armours" "gloves" "boots" "helmets" "shields" "foci" "staves" "sceptres" "wands" "one hand maces" "quarterstaves" "two hand maces" "bows" "crossbows" "quivers" "amulets" "belts" "rings"
 	Rarity Rare
 	AreaLevel < 65
 	SetFontSize 38
@@ -3544,175 +3632,175 @@ Show # %D5 $type->leveling->normalmagicremarkable $tier->earlyboots
 #------------------------------------
 # !! Waypoint c21.leveling.firstlevels.all : "Leveling - Normal and Magic - First Levels"
 
-#Hide  # %RH1 $type->leveling->progressivehide $tier->normal1
-#	DropLevel < 8
-#	Rarity Normal
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 22
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH1 $type->leveling->progressivehide $tier->normal1
+DropLevel < 8
+Rarity Normal
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 22
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-#Hide  # %RH1 $type->leveling->progressivehide $tier->normal2
-#	DropLevel < 16
-#	Rarity Normal
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 30
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH1 $type->leveling->progressivehide $tier->normal2
+DropLevel < 16
+Rarity Normal
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 30
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-#Hide  # %RH1 $type->leveling->progressivehide $tier->normal3
-#	DropLevel < 24
-#	Rarity Normal
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 40
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH1 $type->leveling->progressivehide $tier->normal3
+DropLevel < 24
+Rarity Normal
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 40
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-#Hide  # %RH1 $type->leveling->progressivehide $tier->normal4
-#	DropLevel < 32
-#	Rarity Normal
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 48
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH1 $type->leveling->progressivehide $tier->normal4
+DropLevel < 32
+Rarity Normal
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 48
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-#Hide  # %RH1 $type->leveling->progressivehide $tier->normal5
-#	DropLevel < 40
-#	Rarity Normal
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 56
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH1 $type->leveling->progressivehide $tier->normal5
+DropLevel < 40
+Rarity Normal
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 56
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-#Hide  # %RH1 $type->leveling->progressivehide $tier->normal6
-#	DropLevel < 44
-#	Rarity Normal
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 60
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH1 $type->leveling->progressivehide $tier->normal6
+DropLevel < 44
+Rarity Normal
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 60
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-#Hide  # %RH2 $type->leveling->progressivehide $tier->magic1
-#	DropLevel < 8
-#	Rarity Magic
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 22
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH2 $type->leveling->progressivehide $tier->magic1
+DropLevel < 8
+Rarity Magic
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 22
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-#Hide  # %RH2 $type->leveling->progressivehide $tier->magic2
-#	DropLevel < 16
-#	Rarity Magic
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 30
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH2 $type->leveling->progressivehide $tier->magic2
+DropLevel < 16
+Rarity Magic
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 30
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-#Hide  # %RH2 $type->leveling->progressivehide $tier->magic3
-#	DropLevel < 24
-#	Rarity Magic
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 40
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH2 $type->leveling->progressivehide $tier->magic3
+DropLevel < 24
+Rarity Magic
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 40
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-#Hide  # %RH2 $type->leveling->progressivehide $tier->magic4
-#	DropLevel < 32
-#	Rarity Magic
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 48
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH2 $type->leveling->progressivehide $tier->magic4
+DropLevel < 32
+Rarity Magic
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 48
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-#Hide  # %RH2 $type->leveling->progressivehide $tier->magic5
-#	DropLevel < 40
-#	Rarity Magic
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 56
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH2 $type->leveling->progressivehide $tier->magic5
+DropLevel < 40
+Rarity Magic
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 56
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-#Hide  # %RH2 $type->leveling->progressivehide $tier->magic6
-#	DropLevel < 44
-#	Rarity Magic
-#	Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
-#	AreaLevel >= 60
-#	SetFontSize 18
-#	SetBackgroundColor 20 20 0 0
+Hide  # %RH2 $type->leveling->progressivehide $tier->magic6
+DropLevel < 44
+Rarity Magic
+Class == "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Shields" "Two Hand Maces"
+AreaLevel >= 60
+SetFontSize 18
+SetBackgroundColor 20 20 0 0
 
-Show # %D3 $type->leveling->normalmagic->armours $tier->ar
-	BaseEnergyShield 0
-	BaseEvasion 0
-	BaseArmour > 0
-	Rarity Normal Magic
-	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
+#Show # %D3 $type->leveling->normalmagic->armours $tier->ar
+#	BaseEnergyShield 0
+#	BaseEvasion 0
+#	BaseArmour > 0
+#	Rarity Normal Magic
+#	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
 
-Show # %D3 $type->leveling->normalmagic->armours $tier->ev
-	BaseEnergyShield 0
-	BaseEvasion > 0
-	BaseArmour 0
-	Rarity Normal Magic
-	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
+#Show # %D3 $type->leveling->normalmagic->armours $tier->ev
+#	BaseEnergyShield 0
+#	BaseEvasion > 0
+#	BaseArmour 0
+#	Rarity Normal Magic
+#	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
 
-Show # %D3 $type->leveling->normalmagic->armours $tier->es
-	BaseEnergyShield > 0
-	BaseEvasion 0
-	BaseArmour 0
-	Rarity Normal Magic
-	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
+#Show # %D3 $type->leveling->normalmagic->armours $tier->es
+#	BaseEnergyShield > 0
+#	BaseEvasion 0
+#	BaseArmour 0
+#	Rarity Normal Magic
+#	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
 
-Show # %D3 $type->leveling->normalmagic->armours $tier->arev
-	BaseEnergyShield 0
-	BaseEvasion > 0
-	BaseArmour > 0
-	Rarity Normal Magic
-	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
+#Show # %D3 $type->leveling->normalmagic->armours $tier->arev
+#	BaseEnergyShield 0
+#	BaseEvasion > 0
+#	BaseArmour > 0
+#	Rarity Normal Magic
+#	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
 
-Show # %D3 $type->leveling->normalmagic->armours $tier->ares
-	BaseEnergyShield > 0
-	BaseEvasion 0
-	BaseArmour > 0
-	Rarity Normal Magic
-	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
+#Show # %D3 $type->leveling->normalmagic->armours $tier->ares
+#	BaseEnergyShield > 0
+#	BaseEvasion 0
+#	BaseArmour > 0
+#	Rarity Normal Magic
+#	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
 
-Show # %D3 $type->leveling->normalmagic->armours $tier->eves
-	BaseEnergyShield > 0
-	BaseEvasion > 0
-	BaseArmour 0
-	Rarity Normal Magic
-	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
+#Show # %D3 $type->leveling->normalmagic->armours $tier->eves
+#	BaseEnergyShield > 0
+#	BaseEvasion > 0
+#	BaseArmour 0
+#	Rarity Normal Magic
+#	Class == "Body Armours" "Boots" "Foci" "Gloves" "Helmets" "Shields"
 
-Show # %D3 $type->leveling->normalmagic->weapons $tier->wands
-	Rarity Normal Magic
-	Class == "Wands"
+#Show # %D3 $type->leveling->normalmagic->weapons $tier->wands
+#	Rarity Normal Magic
+#	Class == "Wands"
 
-Show # %D3 $type->leveling->normalmagic->weapons $tier->sceptres
-	Rarity Normal Magic
-	Class == "Sceptres"
+#Show # %D3 $type->leveling->normalmagic->weapons $tier->sceptres
+#	Rarity Normal Magic
+#	Class == "Sceptres"
 
-Show # %D3 $type->leveling->normalmagic->weapons $tier->staves
-	Rarity Normal Magic
-	Class == "Staves"
+#Show # %D3 $type->leveling->normalmagic->weapons $tier->staves
+#	Rarity Normal Magic
+#	Class == "Staves"
 
-Show # %D3 $type->leveling->normalmagic->weapons $tier->bowsquivers
-	Rarity Normal Magic
-	Class == "Bows" "Quivers"
+#Show # %D3 $type->leveling->normalmagic->weapons $tier->bowsquivers
+#	Rarity Normal Magic
+#	Class == "Bows" "Quivers"
 
-Show # %D3 $type->leveling->normalmagic->weapons $tier->crossbows
-	Rarity Normal Magic
-	Class == "Crossbows"
+#Show # %D3 $type->leveling->normalmagic->weapons $tier->crossbows
+#	Rarity Normal Magic
+#	Class == "Crossbows"
 
-Show # %D3 $type->leveling->normalmagic->weapons $tier->onehandmaces
-	Rarity Normal Magic
-	Class == "One Hand Maces"
+#Show # %D3 $type->leveling->normalmagic->weapons $tier->onehandmaces
+#	Rarity Normal Magic
+#	Class == "One Hand Maces"
 
-Show # %D3 $type->leveling->normalmagic->weapons $tier->twohandmaces
-	Rarity Normal Magic
-	Class == "Two Hand Maces"
+#Show # %D3 $type->leveling->normalmagic->weapons $tier->twohandmaces
+#	Rarity Normal Magic
+#	Class == "Two Hand Maces"
 
-Show # %D3 $type->leveling->normalmagic->weapons $tier->quarterstaves
-	Rarity Normal Magic
-	Class == "Quarterstaves"
+#Show # %D3 $type->leveling->normalmagic->weapons $tier->quarterstaves
+#	Rarity Normal Magic
+#	Class == "Quarterstaves"
 
 #------------------------------------
 #   [3504] Others
@@ -3728,11 +3816,11 @@ Show # %D5 $type->leveling->firstlevels $tier->firstareasnormal
 	AreaLevel <= 3
 	SetFontSize 38
 
-Show # %D2 $type->leveling->magic->remaining $tier->rest
-	Rarity Magic
-	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
-	AreaLevel >= 24
-	AreaLevel <= 65
+#Show # %D2 $type->leveling->magic->remaining $tier->rest
+#	Rarity Magic
+#	Class == "Amulets" "Belts" "Body Armours" "Boots" "Bows" "Crossbows" "Foci" "Gloves" "Helmets" "One Hand Maces" "Quarterstaves" "Quivers" "Rings" "Sceptres" "Shields" "Staves" "Two Hand Maces" "Wands"
+#	AreaLevel >= 24
+#	AreaLevel <= 65
 
 Show # %D4 $type->leveling->magic->remaining $tier->act2
 	Rarity Magic
