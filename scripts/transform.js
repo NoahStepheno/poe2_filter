@@ -39,6 +39,10 @@ function genFilterFile(map) {
 
 function addCustomSound(mapFrom, mapTarget) {
   for (let [key, value] of mapFrom) {
+    if (!key.startsWith("Show #")) {
+      console.log(key);
+      continue;
+    }
     const target = mapTarget.get(key);
     if (target?.get("CustomAlertSound")) {
       value.set("CustomAlertSound", target?.get("CustomAlertSound"));
